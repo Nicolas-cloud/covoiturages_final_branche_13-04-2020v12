@@ -19,6 +19,19 @@ class TrajetRepository extends ServiceEntityRepository
         parent::__construct($registry, Trajet::class);
     }
 
+
+    /**
+    * @return Trajet[]
+    */
+    public function getTrajetsNonExpires()
+    {
+    $qb = $this->createQueryBuilder('t')
+        ->where('t.date_expiration > :date')
+        ->setParameter('date', new \DateTime())
+        ->orderBy('t.date_creation', 'DESC');
+        return $qb->getQuery()->getResult();
+    }
+    
     // /**
     //  * @return Trajet[] Returns an array of Trajet objects
     //  */

@@ -11,6 +11,8 @@
             <th class="active text-center">Prix</th>
             <th class="active text-center">Description</th>
             <th class="active text-center">DateCreation</th>
+            <th class="active text-center">DateExpiration</th>
+            <th class="active text-center">Détails</th>
         </tr>
 
         {% for trajet in trajets %}
@@ -23,7 +25,8 @@
                 <td>{{ trajet.Prix }}</td>
                 <td>{{ trajet.Description }}</td>
                 <td>{{ trajet.DateCreation|date('m/d/Y') }}</td>
-                <td><a href="#"></a></td>
+                <td>{{ trajet.DateExpiration|date('m/d/Y') }}</td>
+                <td><a href="{{ path('trajet.show', {id: trajet.id}) }}">Voir les infos</a></td>
                 <td>
                     <a href="#">
 

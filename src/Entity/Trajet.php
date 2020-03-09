@@ -77,6 +77,11 @@ class Trajet
      */
     private $avis;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_expiration;
+
 
     public function __construct()
     {
@@ -93,6 +98,10 @@ class Trajet
     {
         $this->date_creation = new \DateTime();
         $this->date_modification = new \DateTime();
+
+        if (!$this->date_expiration) {
+            $this->date_expiration = (clone $this->date_creation)->modify('+60 days');
+        }
     }
     /**
      * @ORM\PreUpdate()
@@ -274,6 +283,18 @@ class Trajet
                 $avi->setAvisTrajet(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDateExpiration(): ?\DateTimeInterface
+    {
+        return $this->date_expiration;
+    }
+
+    public function setDateExpiration(?\DateTimeInterface $date_expiration): self
+    {
+        $this->date_expiration = $date_expiration;
 
         return $this;
     }

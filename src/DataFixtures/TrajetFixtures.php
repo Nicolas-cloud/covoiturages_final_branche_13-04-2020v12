@@ -6,6 +6,7 @@ use App\Entity\Trajet;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 class TrajetFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -31,6 +32,39 @@ _lorem;
             ->setVilleArrivee("Paris")
             ->setVilleDepart("Nantes");
         $manager->persist($trajet1);
+        
+
+        $trajet2 = new Trajet();
+        $description = <<< _lorem
+test description trajet numéro2
+_lorem;
+        $trajet2->setDateCreation(new \DateTime(2020-03-07))
+            ->setDateModification(new \DateTime(2020-03-07))
+            ->setDescription($description)
+            ->setHeureArrivee(new \DateTime('07:20:00'))
+            ->setHeureDepart(new \DateTime('11:20:00'))
+            ->setNbPlaces(2)
+            ->setPrix(10)
+            ->setVilleArrivee("Marseille")
+            ->setVilleDepart("Lyon")
+            ->setDateExpiration(new \DateTime('-30 days'));
+        $manager->persist($trajet2);
+
+        $trajet3 = new Trajet();
+        $description = <<< _lorem
+numéro 3
+_lorem;
+        $trajet3->setDateCreation(new \DateTime(2020-03-07))
+            ->setDateModification(new \DateTime(2020-03-07))
+            ->setDescription($description)
+            ->setHeureArrivee(new \DateTime('07:20:00'))
+            ->setHeureDepart(new \DateTime('11:20:00'))
+            ->setNbPlaces(4)
+            ->setPrix(15)
+            ->setVilleArrivee("Toulouse")
+            ->setVilleDepart("Montpellier")
+            ->setDateExpiration(new \DateTime('+90 days'));
+        $manager->persist($trajet3);
 
         $manager->flush();
     }
