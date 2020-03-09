@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table text-center">
+        <tr>
+            <th class="active text-center">VilleDepart</th>
+            <th class="active text-center">VilleArrivee</th>
+            <th class="active text-center">HeureDepart</th>
+            <th class="active text-center">HeureArrivee</th>
+            <th class="active text-center">NbPlaces</th>
+            <th class="active text-center">Prix</th>
+            <th class="active text-center">Description</th>
+            <th class="active text-center">DateCreation</th>
+        </tr>
+
+        {% for trajet in trajets %}
+            <tr>
+                <td>{{ trajet.VilleDepart }}</td>
+                <td>{{ trajet.VilleArrivee }}</td>
+                <td>{{ trajet.HeureDepart|date('h:i:s') }}</td>
+                <td>{{ trajet.HeureArrivee|date('h:i:s') }}</td>
+                <td>{{ trajet.NbPlaces }}</td>
+                <td>{{ trajet.Prix }}</td>
+                <td>{{ trajet.Description }}</td>
+                <td>{{ trajet.DateCreation|date('m/d/Y') }}</td>
+                <td><a href="#"></a></td>
+                <td>
+                    <a href="#">
+
+                    </a>
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

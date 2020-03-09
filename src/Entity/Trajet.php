@@ -102,7 +102,7 @@ class Trajet
         $this->date_modification = new \DateTime();
     }
 
-    
+
     public function getId(): ?int
     {
         return $this->id;
