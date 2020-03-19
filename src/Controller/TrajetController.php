@@ -15,11 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
-/**
-  * Require ROLE_USER for *every* controller method in this class.
-  *
-  * @IsGranted("ROLE_USER")  
- **/
 class TrajetController extends AbstractController
 {
     /**
@@ -44,10 +39,9 @@ class TrajetController extends AbstractController
         ]);
     }
 
-
     /**
      * Chercher et afficher un trajet.
-     * @Route("/trajet/{slug}", name="trajet.show",  requirements={"name"=".+"})
+     * @Route("/trajet/{slug}/details", name="trajet.show",  requirements={"name"=".+"})
      * @param Trajet $trajet
      * @return Response
      */
@@ -60,6 +54,7 @@ class TrajetController extends AbstractController
 
     /**
      * Créer un nouveau trajet.
+     * @IsGranted("ROLE_USER")
      * @Route("/nouveau-trajet", name="trajet.create")
      * @param Request $request
      * @param EntityManagerInterface $em
@@ -78,9 +73,10 @@ class TrajetController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+    
     /**
      * Éditer un trajet.
+     * @IsGranted("ROLE_USER")
      * @Route("trajet/{slug}/edit", name="trajet.edit")
      * @param Request $request
      * @param EntityManagerInterface $em
@@ -99,10 +95,11 @@ class TrajetController extends AbstractController
     }
 
     /**
-     * Supprimer un trajet.
+     * Supprimer un trajet
+     * @IsGranted("ROLE_USER")
      * @Route("trajet/{slug}/delete", name="trajet.delete")
      * @param Request $request
-     * @param Stage $trajet
+     * @param Trajet $trajet
      * @param EntityManagerInterface $em
      * @return Response
      */
@@ -111,14 +108,16 @@ class TrajetController extends AbstractController
             ->setAction($this->generateUrl('trajet.delete', ['slug' => $trajet->getSlug()]))
             ->getForm();
         $form->handleRequest($request);
-    if ( ! $form->isSubmitted() || ! $form->isValid()) {
+        if ( ! $form->isSubmitted() || ! $form->isValid()) {
+
             return $this->render('trajet/delete.html.twig', [
             'trajet' => $trajet,
             'form' => $form->createView(),
         ]);
         }
+
         $em = $this->getDoctrine()->getManager();
-        $em->remove($stage);
+        $em->remove($trajet);
         $em->ﬂush();
         return $this->redirectToRoute('trajet.list');
     }

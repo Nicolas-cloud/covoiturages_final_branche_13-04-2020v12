@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use App\Controller\TrajetController;
+
 
 class SecurityController extends AbstractController
 {
@@ -31,6 +33,11 @@ class SecurityController extends AbstractController
      */
     public function logout()
     {
-        throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        // remettre le truc en dessous si ça bug
+        // throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        $trajets = $this->getDoctrine()->getRepository(Trajet::class)->getTrajetsNonExpires();
+        return $this->render('trajet/list.html.twig', [
+            'trajets' => $trajets,
+        ]);
     }
 }

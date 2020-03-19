@@ -22,33 +22,45 @@ class TrajetType extends AbstractType
     {
         $builder
             ->add('ville_depart', TextType::class, [
+                'label' => 'Ville de départ',
                 'constraints' => [new NotBlank(),
                     new Length(['max' => 255]),
                 ]
             ])
             ->add('ville_arrivee', TextType::class, [
+                'label' => 'Ville d\'arrivée',
                 'constraints' => [new NotBlank(),
                     new Length(['max' => 255]),
                 ]
             ])
             ->add('heure_depart', TimeType::class, [
+                'label' => 'Heure de départ',
                 'constraints' => [new NotBlank(),
                 ]
             ])
             ->add('heure_arrivee', TimeType::class, [
+                'label' => 'Heure d\'arrivee',
                 'constraints' => [new NotBlank(),
                 ]
             ])
             ->add('prix', NumberType::class)
-            ->add('nb_places', IntegerType::class)
-            ->add('description', TextareaType::class)
-            ->add('date_creation', DateType::class)
-            ->add('date_modification', DateType::class)
+            ->add('nb_places', IntegerType::class, [
+                'label' => 'Nombre de places',
+            ])
+            ->add('description', TextareaType::class, [
+                'label' => 'Informations supplémentaires',
+            ])
+            ->add('date_creation', DateType::class, [
+                'label' => 'Date de création',
+            ])
+            ->add('date_modification', DateType::class, [
+                'label' => 'Date de modification',
+            ])
             ->add('date_expiration', DateType::class, [
+                'label' => 'Date d\'expiration',
                 'constraints' => [new NotBlank(),
                 ]
-            ])
-            ->add('slug', TextType::class);
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

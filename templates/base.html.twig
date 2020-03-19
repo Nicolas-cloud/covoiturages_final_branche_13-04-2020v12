@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Gestion des covoiturages{% endblock %}</title>
+    <title>{% block title %}Besoin d'un covoiturage ?{% endblock %}</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
@@ -21,15 +21,36 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <div style="display:flex;">
-                            <div   style="margin-right: 10px; margin-left: 10px;">
+                            <div style="margin-right: 10px; margin-left: 10px;">
                                 <a href="{{ path('trajet.list') }}" class="btn btn-default navbar-btn">Trajets disponibles</a> 
                             </div>
                             <div style="margin-right: 10px; margin-left: 10px;">
-                                <a href="#" class="btn btn-default navbar-btn">S'authentifier</a> 
+                                <a href="{{ path('search.trajet') }}" class="btn btn-default navbar-btn"><img src="https://previews.123rf.com/images/dxinerz/dxinerz1508/dxinerz150803110/44320444-loupe-optimisation-recherche-d-image-ic%C3%B4ne-vecteur-peut-aussi-%C3%AAtre-utilis%C3%A9-pour-le-t%C3%A9l%C3%A9phone-barre-d-on.jpg" width="20" height="20" class="d-inline-block align-top">Rechercher</a> 
                             </div> 
                             <div style="margin-right: 10px; margin-left: 10px;">
                                 <a href="{{ path('trajet.create') }}" class="btn btn-default navbar-btn">Proposer un trajet</a>
                             </div>
+                            <div style="margin-right: 10px; margin-left: 10px;">
+                                <a href="#"></a>
+                            </div>
+                            {% if is_granted('ROLE_USER') %}
+                                <div style="margin-right: margin-left: 10px;>
+                                    <a href="#"
+                                    class="btn btn-default navbar-btn">Profil</a> 
+                                </div> 
+                            {% endif %}
+                            <div style="margin-right: 10px; margin-left: 10px;">
+                                <a href="#" class="btn btn-default navbar-btn">Inscription</a> 
+                            </div> 
+                            <div style="margin-right: 10px; margin-left: 10px;">
+                                <a href="{{ path('app_login') }}" class="btn btn-default navbar-btn">Connexion</a> 
+                            </div>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <div style="margin-right: margin-left:10px;">
+                                    <a href="{{ path('admin_index') }}"
+                                    class="btn btn-default navbar-btn">Administration</a> 
+                                </div> 
+                            {% endif %}
                         </div>
                     </li>
                 </ul>
