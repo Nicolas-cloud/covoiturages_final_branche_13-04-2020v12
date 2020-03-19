@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace privé |  {{ parent() }}{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+
+    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+
+{% endblock %}
