@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Détails trajet | {{ parent() }}{% endblock %}
+
+
 {% block body %}
     <h1>Détails du Trajet <i>{{ trajet.VilleDepart }} - {{ trajet.VilleArrivee }}</i> :</h1>
     <div class="media" style="margin-top: 60px;">

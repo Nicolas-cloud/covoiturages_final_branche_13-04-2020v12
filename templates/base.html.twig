@@ -5,7 +5,8 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+    {% endblock %}
 
     {% block javascripts %}{% endblock %}
 
@@ -39,12 +40,21 @@
                                     class="btn btn-default navbar-btn">Profil</a> 
                                 </div> 
                             {% endif %}
-                            <div style="margin-right: 10px; margin-left: 10px;">
-                                <a href="#" class="btn btn-default navbar-btn">Inscription</a> 
-                            </div> 
-                            <div style="margin-right: 10px; margin-left: 10px;">
-                                <a href="{{ path('app_login') }}" class="btn btn-default navbar-btn">Connexion</a> 
-                            </div>
+                            {% if is_granted('ROLE_USER') %}
+                                <div style="margin-right: 10px; margin-left: 10px;">
+                                    <a href="#" class="btn btn-default navbar-btn">Se déconnecter</a> 
+                                </div> 
+                            {% else %}
+                                <div style="margin-right: 10px; margin-left: 10px;">
+                                    <a href="#" class="btn btn-default navbar-btn">Inscription</a> 
+                                </div> 
+                            {% endif %}
+                            {% if is_granted('ROLE_USER') %}
+                            {% else %}
+                                <div style="margin-right: 10px; margin-left: 10px;">
+                                    <a href="{{ path('app_login') }}" class="btn btn-default navbar-btn">Connexion</a> 
+                                </div>
+                            {% endif %}
                             {% if is_granted('ROLE_ADMIN') %}
                                 <div style="margin-right: margin-left:10px;">
                                     <a href="{{ path('admin_index') }}"

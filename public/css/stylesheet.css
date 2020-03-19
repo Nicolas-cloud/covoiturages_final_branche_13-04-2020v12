@@ -1,4 +1,14 @@
-.div
-{
-    display:flex;
+body{
+    padding: 0;
+    margin: 0;
+}
+.menu ul{
+    list-style: none;
+    margin:0;
+}
+.menu ul li{
+    padding: 15px;
+    position: relative;
+    width: 200px;
+    background-color: lightblue;
 }

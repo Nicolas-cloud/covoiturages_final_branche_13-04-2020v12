@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Administration |  {{ parent() }}{% endblock %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/stylesheet.css') }}"/>
+    {% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class ="menu">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/projet_covoiturages_V2-developpement2/src/Controller/AdminController.php'|file_link(0) }}">src/Controller/AdminController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/projet_covoiturages_V2-developpement2/templates/admin/index.html.twig'|file_link(0) }}">templates/admin/index.html.twig</a></code></li>
-    </ul>
 </div>
+    <div>
+        <h1>Administration</h1>
+    </div>
+    <ul>
+        <li><a href="{{ path('trajet.list') }}">Page d'accueil</a></li>
+        <li><a href="#">Gérer utilisateurs</a>
+            <ul>
+                <li><a href="#">Ajouter</a></li>
+                <li><a href="<a href="{{ path('admin_utilisateurs') }}">Liste utilisateurs</a></li>
+                <li><a href="#">Supprimer</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Web Design</a></li>
+        <li><a href="#">Contactez-nous</a></li>
+    </ul>
+
 {% endblock %}

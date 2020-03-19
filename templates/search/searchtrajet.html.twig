@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recherche de trajets{% endblock %}
+{% block title %}Recherche trajet | {{ parent() }}{% endblock %}
 
 {% block body %}
 <style>
@@ -33,6 +33,7 @@
                                 <h2>Nombre de place disponible : {{trajet.NbPlaces }}</h2>
                             {% endif %}
                             <h2>Prix du voyage : {{trajet.Prix }}</h2>
+                            <h2><a class="btn btn-primary btn-lg" href="{{  path('trajet.show', {'slug': trajet.slug}) }}">Détails</a>
                         </div>
                     {% endfor %}
                 {% endif %}
