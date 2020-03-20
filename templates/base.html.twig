@@ -27,6 +27,9 @@
                     <li>
                         <div style="display:flex;">
                             <div style="margin-right: 10px; margin-left: 10px;">
+                                <a href="{{ path('home') }}" class="btn btn-default navbar-btn">Accueil</a> 
+                            </div>
+                            <div style="margin-right: 10px; margin-left: 10px;">
                                 <a href="{{ path('trajet.list') }}" class="btn btn-default navbar-btn">Trajets disponibles</a> 
                             </div>
                             <div style="margin-right: 10px; margin-left: 10px;">
@@ -47,7 +50,7 @@
                                 </div> 
                             {% else %}
                                 <div style="margin-right: 10px; margin-left: 10px;">
-                                    <a href="{{ path('membre_create') }}" class="btn btn-default navbar-btn">Inscription</a> 
+                                    <a name="ok" href="{{ path('membre_create') }}" class="btn btn-default navbar-btn">Inscription</a>
                                 </div> 
                             {% endif %}
                             {% if is_granted('ROLE_USER') %}
