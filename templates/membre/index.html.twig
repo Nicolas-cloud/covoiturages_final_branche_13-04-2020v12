@@ -1,12 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Espace privé |  {{ parent() }}{% endblock %}
+{% block title %}Compte crée | {{ parent() }}{% endblock %}
 
 {% block head %}
 {% endblock %}
 
 {% block body %}
-
-    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+<div>
+    <div>
+        <h1>Félicitations ! Votre compte a bien été créé.</h1>
+    </div>
+    <div>
+        <h3>Votre compte a bien été crée. Voulez-vous vous authentifier ?</h3>
+    </div>
+    <div>
+        <a href="{{ path('app_login') }}" <button type="button" class="btn btn-primary">Cliquez ici pour vous connecter à votre compte</a> 
+    </div>
+    <div>
+    You are logged in as <a href="{{ path('app_logout') }}">Logout</a>
+    </div>
 
 {% endblock %}

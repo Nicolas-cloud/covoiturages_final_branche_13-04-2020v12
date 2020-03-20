@@ -35,9 +35,6 @@
                             <div style="margin-right: 10px; margin-left: 10px;">
                                 <a href="{{ path('trajet.create') }}" class="btn btn-default navbar-btn">Proposer un trajet</a>
                             </div>
-                            <div style="margin-right: 10px; margin-left: 10px;">
-                                <a href="#"></a>
-                            </div>
                             {% if is_granted('ROLE_USER') %}
                                 <div style="margin-right: margin-left: 10px;>
                                     <a href="#"
@@ -46,7 +43,7 @@
                             {% endif %}
                             {% if is_granted('ROLE_USER') %}
                                 <div style="margin-right: 10px; margin-left: 10px;">
-                                    <a href="#" class="btn btn-default navbar-btn">Se déconnecter</a> 
+                                    <a href="{{ path('app_logout') }}" class="btn btn-default navbar-btn">Se déconnecter</a> 
                                 </div> 
                             {% else %}
                                 <div style="margin-right: 10px; margin-left: 10px;">
@@ -61,7 +58,7 @@
                             {% endif %}
                             {% if is_granted('ROLE_ADMIN') %}
                                 <div style="margin-right: margin-left:10px;">
-                                    <a href="{{ path('admin_index') }}"
+                                    <a href="{{ path('admin_administration') }}"
                                     class="btn btn-default navbar-btn">Administration</a> 
                                 </div> 
                             {% endif %}

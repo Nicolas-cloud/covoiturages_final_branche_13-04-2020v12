@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\TrajetController;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use App\Entity\User;
 use App\Form\UserType;
 
@@ -31,18 +32,20 @@ class MembreController extends AbstractController
      * @Route("/nouveau-membre", name="create")
      * @param Request $request
      * @param EntityManagerInterface $em
-     * @return RedirectResponse|Response
+     * @return RedirectResponse
      */
     public function create(Request $request, EntityManagerInterface $em) : Response {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
+    
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($trajet);
+
+            $em->persist($user);
              $em->flush();
             return $this->redirectToRoute('membre_index');
         }
-        return $this->render('trajet/usercreate.html.twig', [
+        return $this->render('membre/createuser.html.twig', [
             'form' => $form->createView(),
         ]);
     }

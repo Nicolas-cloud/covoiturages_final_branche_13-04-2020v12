@@ -13,6 +13,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 class UserType extends AbstractType
@@ -27,10 +29,15 @@ class UserType extends AbstractType
                     ])
                 ]
             ])
-            ->add('roles', ChoiceType::class, [
+            ->add('roles', CollectionType::class, [
+            'entry_type'   => ChoiceType::class,
+            'entry_options'  => [
+                'label' => false,
                 'choices' => [
-                    'Utilisateur' => 'ROLE_USER'
-                ]
+                    'Utilisateur' => 'ROLE_USER',
+                ],
+            ],
+            'label' => 'Rôle',
             ])
             ->add('password', PasswordType::class)
                     //'type' => PasswordType::class,
@@ -57,8 +64,16 @@ class UserType extends AbstractType
                     ])
                 ]
             ])
-            ->add('sexe', TextType::class)
-            ->add('annee_naissance', DateType::class)
+            ->add('sexe', ChoiceType::class, [
+                'choices' => [
+                    'Homme' => 'Homme',
+                    'Femme' => 'Femme', 
+                ]
+            ])
+            ->add('annee_naissance', BirthdayType::class, [
+                'placeholder' => 'Select',
+                'label' => 'Date de naissance'
+            ])
             ->add('Valider', SubmitType::class)
         ;
     }
