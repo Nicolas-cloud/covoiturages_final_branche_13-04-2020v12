@@ -1,2 +1,37 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Accueil | {{ parent() }}{% endblock %}
+{% block head %}
+    {% block stylesheets %}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+        <style>
+            h1{
+                color:red;
+            }
+            #bloc_image p {
+                font-size:20;
+                text-align: center;
+                z-index: 200;
+            }
+
+        </style> 
+    {% endblock stylesheets %}
+{% endblock head %}
+
+{% block body %}
+    <h1>test</h1>
+
+    <div id="bloc_image">
+        <img src="https://geo.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fgeo.2F2018.2F11.2F13.2Fd6380e5c-39e3-45b1-b858-c1c72ffe37fa.2Ejpeg/1120x630/background-color/ffffff/quality/90/comment-faire-du-covoiturage-en-europe.jpg" alt="Nature" style="width:100%">
+        <p>Partagez vos voyages<p>
+    </div>
+
+    <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+
+    </footer>
+
+{% endblock %}
+

@@ -43,6 +43,8 @@ class TrajetRepository extends ServiceEntityRepository
             ->setParameter("ville_depart", $criteria['ville_depart']) 
             ->andWhere('t.ville_arrivee = :ville_arrivee')
             ->setParameter("ville_arrivee", $criteria['ville_arrivee'])
+            ->andWhere('t.heure_depart', $criteria['heure_depart'])
+            ->setParameter('heure_depart >= heure_depart')
             ->andWhere('t.nb_places >= :nb_places')
             ->setParameter("nb_places", $criteria['nb_places'])
             ->andWhere('t.prix >= :maximum_price')

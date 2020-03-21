@@ -2,24 +2,30 @@
 
 {% block title %}Administration |  {{ parent() }}{% endblock %}
 
-{% block body %}
-<div class ="menu">
 
-</div>
-    <div>
-        <h1><strong>Administration</strong></h1>
-    </div>
+{% block head %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        {% block style %}
+            h1{
+                color:red;
+            }
+        {% endblock %}
+    {% endblock stylesheets %}
+{% endblock head %}
+
+{% block body %}
+
+    <h1>Administration</h1>
     <ul>
-        <li><a href="{{ path('trajet.list') }}">Page d'accueil</a></li>
-        <li><a href="#">Gérer utilisateurs</a>
-            <ul>
-                <li><a href="#">Ajouter un utilisateur</a></li>
-                <li><a href="{{ path('admin_utilisateurs') }}">Liste des utilisateurs</a></li>
-            </ul>
-        </li>
+        <li><a href="#">Modérer utilisateurs</a></li>
+        <ul>
+            <li><a href="#">Ajouter un utilisateur</a></li>
+            <li><a href="{{ path('admin_utilisateurs') }}">Liste des utilisateurs</a></li>
+        </ul>
+            <li><a href="#">Paramètres</a></li>
+            <li><a href="#">Chat modérateurs</a></li>
         <li><a href="#">Web Design</a></li>
-        <li><a href="#">Contactez-nous</a></li>
     </ul>
-</div>
 
 {% endblock %}

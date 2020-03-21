@@ -2,18 +2,29 @@
 
 {% block title %}Liste utilisateurs | {{ parent() }}{% endblock %}
 
+    {% block head %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <style>
+                th{
+                    text-align : center;
+                }
+                .table{
+                    text-align : center;
+                }
+
+            </style>
+        {% endblock stylesheets %}
+    {% endblock head %}
+
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
     <h1>Liste des utilisateurs</h1>
-    <table class="table" style="text-align : center;">
+    <table class="table">
         <thead>
-            <th style="text-align: center;">ID</th>
-            <th style="text-align: center;">Email</th>
-            <th style="text-align: center;">Rôles</th>
-            <th style="text-align: center;">Actions</th>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Rôles</th>
+            <th>Actions</th>
         </thead>
         <tbody>
             {% for user in users %}

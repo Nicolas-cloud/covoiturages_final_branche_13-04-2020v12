@@ -1,74 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>
     <title>{% block title %}Besoin d'un covoiturage ?{% endblock %}</title>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
-    {% block stylesheets %}
-
+    <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <style>{{ asset('../public/css/stylesheet') }}</style>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         
-    {% endblock stylesheets %}
+        <style>
+            body{
+                overflow: scroll;
+            }
+                ul {
+                    list-style-type: none;
+                    margin: 5px;
+                    padding: 5px;
+                }
+                li a {
+                    display: block;
+                    margin:10px;
+                    padding:10px;
+                    text-align: center;
+                    padding: 14px 16px;
+                    color:#34393E;
+                    font-size:12pt;
+                }
+                a:link{
+                    text-decoration:none;
+                }
+                li a:hover {
+                    text: #585858;
+                }
+                .lien_left{
+                    float:left;
+                }
+                .lien_right{
+                    float:right;
+                }
+                .marge{
+                    margin-left:240px;
+                    margin-right:240px;
+                    margin-bottom:2%;
+                }
+            </style>
+    </head>
 
     {% block javascripts %}{% endblock %}
 
-
-</head>
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"</a>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <div style="display:flex;">
-                            <div style="margin-right: 10px; margin-left: 10px;">
-                                <a href="{{ path('home') }}" class="btn btn-default navbar-btn">Accueil</a> 
-                            </div>
-                            <div style="margin-right: 10px; margin-left: 10px;">
-                                <a href="{{ path('trajet.list') }}" class="btn btn-default navbar-btn">Trajets disponibles</a> 
-                            </div>
-                            <div style="margin-right: 10px; margin-left: 10px;">
-                                <a href="{{ path('search.trajet') }}" class="btn btn-default navbar-btn"><img src="https://previews.123rf.com/images/dxinerz/dxinerz1508/dxinerz150803110/44320444-loupe-optimisation-recherche-d-image-ic%C3%B4ne-vecteur-peut-aussi-%C3%AAtre-utilis%C3%A9-pour-le-t%C3%A9l%C3%A9phone-barre-d-on.jpg" width="20" height="20" class="d-inline-block align-top">Rechercher</a> 
-                            </div> 
-                            <div style="margin-right: 10px; margin-left: 10px;">
-                                <a href="{{ path('trajet.create') }}" class="btn btn-default navbar-btn">Proposer un trajet</a>
-                            </div>
-                            {% if is_granted('ROLE_USER') %}
-                                <div style="margin-right: margin-left: 10px;>
-                                    <a href="#"
-                                    class="btn btn-default navbar-btn">Profil</a> 
-                                </div> 
-                            {% endif %}
-                            {% if is_granted('ROLE_USER') %}
-                                <div style="margin-right: 10px; margin-left: 10px;">
-                                    <a href="{{ path('app_logout') }}" class="btn btn-default navbar-btn">Se déconnecter</a> 
-                                </div> 
-                            {% else %}
-                                <div style="margin-right: 10px; margin-left: 10px;">
-                                    <a name="ok" href="{{ path('membre_create') }}" class="btn btn-default navbar-btn">Inscription</a>
-                                </div> 
-                            {% endif %}
-                            {% if is_granted('ROLE_USER') %}
-                            {% else %}
-                                <div style="margin-right: 10px; margin-left: 10px;">
-                                    <a href="{{ path('app_login') }}" class="btn btn-default navbar-btn">Connexion</a> 
-                                </div>
-                            {% endif %}
-                            {% if is_granted('ROLE_ADMIN') %}
-                                <div style="margin-right: margin-left:10px;">
-                                    <a href="{{ path('admin_administration') }}"
-                                    class="btn btn-default navbar-btn">Administration</a> 
-                                </div> 
-                            {% endif %}
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                <uL>
+                <div class="marge">
+                    <li><a href="{{ path('home') }}" class="lien_left"><i class="fa fa-home" style='font-size:15px; margin-right:5px;'></i>Accueil</a></li>
+                    <li><a href="{{ path('trajet.list') }}" class="lien_left"><i class="fa fa-car" style='font-size:15px; margin-right:5px;'></i>Trajets disponibles</a></li>
+                    <li><a href="{{ path('search.trajet') }}" class="lien_left"><i class="fa fa-search" style='font-size:15px; margin-right:5px;'></i>Rechercher</a></li> 
+                    <li><a href="{{ path('trajet.create') }}" class="lien_left"><i class="fa fa-plus" style='font-size:15px; margin-right:5px;'></i>Proposer un trajet</a></li>
+                    <li><a href="#" class="lien_left"><i class='far fa-comment' style='font-size:15px; margin-right:5px;'></i>Contactez-nous</a></li>
+                    {% if is_granted('ROLE_USER') %}
+                        <li><a href="#" class="lien_left"><i class="fa fa-user" style='font-size:15px; margin-right:5px;'></i>Espace perso</a></li>
+                    {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                        <li><a href="{{ path('app_logout') }}" class="lien_right">Se déconnecter</a></li>
+                    {% else %}
+                        <li><a href="{{ path('membre_create') }}" class="lien_right">Inscription</a></li>
+                    {% endif %}
+                    {% if is_granted('ROLE_USER') %}
+                    {% else %}
+                        <li><a href="{{ path('app_login') }}" class="lien_right">Connexion</a></li>
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li><a href="{{ path('admin_administration') }}" class="lien_right">Administration</a></li>
+                    {% endif %}
+                </div>
+            </ul>
         </div>
     </nav>
 

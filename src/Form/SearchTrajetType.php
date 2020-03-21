@@ -9,6 +9,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Validator\Constraints\Length;
 
 
 class SearchTrajetType extends AbstractType
@@ -18,12 +22,28 @@ class SearchTrajetType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     { 
         $builder
-            ->add('ville_depart', TextType::class)
-            ->add('ville_arrivee', TextType::class)
-            ->add('nb_places', IntegerType::class)
-            ->add('minimum_price', ChoiceType::class, [
-                'label' =>  'Prix minimum',
-                'choices' => array_combine(self::PRICE, self::PRICE)
+            ->add('ville_depart', TextType::class, [
+                'label' => 'Ville de départ',
+                'constraints' => [new NotBlank(),
+                ]
+            ])
+            ->add('ville_arrivee', TextType::class, [
+                'label' => 'Ville d\'arrivée',
+                'constraints' => [new NotBlank(),
+                ]
+            ])
+            ->add('date_depart', DateType::class, [
+                'label' => 'Quel jour ?',
+                'constraints' => [new NotBlank(),
+                ]
+            ])
+            ->add('heure_depart', TimeType::class, [
+                'label' => 'À partir de ?',
+                'constraints' => [new NotBlank(),
+                ]
+            ])
+            ->add('nb_places', IntegerType::class, [
+                'label' => 'Nombre de places minimum',
             ])
             ->add('maximum_price', ChoiceType::class, [
                 'label' =>  'Prix maximum',

@@ -27,6 +27,8 @@
                         <div>
                             <h2>Ville de départ : {{ trajet.VilleDepart }}</h2>
                             <h2>Ville d'arrivée : {{ trajet.VilleArrivee }}</h2>
+                            <h2>Heure de départ : {{ trajet.HeureDepart }}</h2>
+                            <h2>Heure d'arrivée : {{ trajet.HeureArrivee }}</h2>
                             {% if trajet.NbPlaces |length > 0 %}
                                 <h2>Nombre de places disponibles : {{ trajet.NbPlaces }}</h2>
                             {% elseif trajet.NbPlaces |length == 0  %}
