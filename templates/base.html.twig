@@ -4,18 +4,34 @@
 
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+        
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-
+        
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.0.js"></script>
+        
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
     </head>
 
+
     {% block javascript %}
+        
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript">
+
+        $(document).ready(function(){           
+            $('#fixed-form-container .body').hide();
+            $('#fixed-form-container .button').click(function () {
+                    $(this).next('#fixed-form-container div').slideToggle(400);
+                    $(this).toggleClass("expanded");
+            });
+        });
+        </script>
+        
     {% endblock %}
+
 
 <body>
     <nav class="navbar navbar-default">
@@ -52,8 +68,6 @@
         </div>
     </nav>
 
-
-    
     <section id="fixed-form-container">
         <div class="button">Click Me!</div>
             <div class="body">
@@ -65,23 +79,21 @@
             <label for="pwd">Password:</label>
             <input type="password" class="form-control" id="pwd">
         </div>
-        <div>
-
-
+        <div class="checkbox">
+            <label><input type="checkbox"> Remember me</label>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </section>
     
-
-
-
     <div class="container">
 
         {% block body %}
 
         {% endblock %}
     </div>
+
+
 
 </body>
 </html>

@@ -46,8 +46,8 @@ class TrajetRepository extends ServiceEntityRepository
             ->setParameter("ville_arrivee", $criteria['ville_arrivee'])
             ->andWhere('t.nb_places >= :nb_places')
             ->setParameter('nb_places', $criteria['nb_places'])
-            ->andWhere('t.date_expiration < :date_depart')
-            ->setParameter("date_depart", $criteria['date_depart']->format('Y-m-d H:i:s'))
+            ->andWhere('t.date_expiration >= :date_depart')
+            ->setParameter("date_depart", $criteria['date_depart']->format('Y-m-d'))
             //->andWhere('t.prix >= :maximum_price')
             //->setParameter("maximum_price", $criteria['maximum_price'])
             ->orderBy('t.prix', 'ASC');

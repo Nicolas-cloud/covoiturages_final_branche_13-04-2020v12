@@ -2,17 +2,21 @@
 
 {% block title %}Liste trajets | {{ parent() }}{% endblock %}
     {% block head %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         {% block stylesheets %}
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-            <style>
-                .listeTrajet{
-                    text-align : center;
+                td{
+                    text: red;
+                    border:1px solid black;
+
                 }
+
+
             </style>
         {% endblock stylesheets %}
     {% endblock head %}
 
-    {% block javascripts %}{% endblock %}
+    {% block javascripts %}
+{% endblock %}
 
 {% block body %}
     <table class="table text-center">
@@ -33,7 +37,7 @@
 
         {% for trajet in trajets %}
             <div class="listeTrajet">
-                <tr>
+                <tr>                
                     <td>{{ trajet.VilleDepart }}</td>
                     <td>{{ trajet.VilleArrivee }}</td>
                     <td>{{ trajet.HeureDepart|date('h:i:s') }}</td>
