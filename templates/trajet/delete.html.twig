@@ -7,11 +7,11 @@
     <div class="alert alert-danger">
         <strong>Avertissement !</strong> Vous êtes en train de supprimer le trajet suivant :
         <ul>
-            <li><strong>Ville de départ : </strong> {{ trajet.VilleDepart }}</li>
-            <li><strong>Ville d'arrivée : </strong>{{ trajet.VilleArrivee }}</li>
-            <li><strong>Heure de départ : </strong>{{ trajet.HeureDepart|date('h:i:s') }}</li>
-            <li><strong>Heure d'arrivée : </strong>{{ trajet.HeureArrivee|date('h:i:s') }}</li>
-            <li><strong>Date de création : </strong>{{ trajet.DateCreation|date('m/d/Y') }}</li>
+            <li><strong>{% trans %}Departure city : {% endtrans %}</strong> {{ trajet.VilleDepart }}</li>
+            <li><strong>{% trans %}Arrival city : {% endtrans %}</strong> {{ trajet.VilleArrivee }}</li>
+            <li><strong>{% trans %}Departure time : {% endtrans %}</strong> {{ trajet.HeureDepart|date('h:i:s') }}</li>
+            <li><strong>{% trans %}Departure arrival : {% endtrans %}</strong> {{ trajet.HeureArrivee|date('h:i:s') }}</li>
+            <li><strong>{% trans %}Creation date : {% endtrans %}</strong> {{ trajet.DateCreation|date('m/d/Y') }}</li>
         </ul>
     </div>
     <div class="collapse navbar-collapse">

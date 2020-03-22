@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Form\EditUserType;
 use App\Repository\UserRepository;
 use App\Entity\User;
-
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 
 /**
@@ -45,7 +45,7 @@ class AdminController extends AbstractController
      * Modifier un utilisateur
      * @Route("/utilisateur/modifier/{id}", name="modifier_utilisateur")
      */
-    public function editUser(User $user, Request $request) 
+    public function editUser(User $user, Request $request, TranslatorInterface $translator) 
     {
         $form = $this->createForm(EditUserType::class, $user);
         $form->handleRequest($request);
@@ -55,7 +55,9 @@ class AdminController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            $this->addFlash('message', 'Utilisateur modifié avec succès');
+            $message = $translator->trans('User modified succesfully');
+
+            $this->addFlash('message', $message);
             return $this->redirectToRoute('admin_utilisateurs');
         }
         
@@ -91,3 +93,7 @@ class AdminController extends AbstractController
         return $this->redirectToRoute('admin_utilisateurs');
     }
 }
+
+
+
+// php bin/console translation:update --force fr

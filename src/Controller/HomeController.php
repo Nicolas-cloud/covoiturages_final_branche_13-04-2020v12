@@ -17,8 +17,6 @@ class HomeController extends AbstractController
         ]);
     }
 
-
-
     /**
      * afficher la page d'accueil
      * 

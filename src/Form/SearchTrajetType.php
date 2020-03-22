@@ -33,14 +33,10 @@ class SearchTrajetType extends AbstractType
                 ]
             ])
             ->add('date_depart', DateType::class, [
-                'label' => 'Quel jour ?',
-                'constraints' => [new NotBlank(),
-                ]
+                'label' => 'Quel jour ?', 
             ])
             ->add('heure_depart', TimeType::class, [
                 'label' => 'À partir de ?',
-                'constraints' => [new NotBlank(),
-                ]
             ])
             ->add('nb_places', IntegerType::class, [
                 'label' => 'Nombre de places minimum',

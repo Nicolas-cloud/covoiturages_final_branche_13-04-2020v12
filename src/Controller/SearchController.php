@@ -30,6 +30,7 @@ class SearchController extends AbstractController
         
         if ($SearchTrajetForm->handleRequest($request)->isSubmitted() && $SearchTrajetForm->isValid()) {
             $criteria = $SearchTrajetForm->getData();
+                //  dd($criteria);
             $trajets = $trajetRepository->searchTrajet($criteria);
         }
 

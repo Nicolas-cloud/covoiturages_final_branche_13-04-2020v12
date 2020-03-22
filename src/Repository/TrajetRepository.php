@@ -6,6 +6,7 @@ use App\Entity\Trajet;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
+
 /**
  * @method Trajet|null find($id, $lockMode = null, $lockVersion = null)
  * @method Trajet|null findOneBy(array $criteria, array $orderBy = null)
@@ -43,14 +44,13 @@ class TrajetRepository extends ServiceEntityRepository
             ->setParameter("ville_depart", $criteria['ville_depart']) 
             ->andWhere('t.ville_arrivee = :ville_arrivee')
             ->setParameter("ville_arrivee", $criteria['ville_arrivee'])
-            ->andWhere('t.heure_depart', $criteria['heure_depart'])
-            ->setParameter('heure_depart >= heure_depart')
             ->andWhere('t.nb_places >= :nb_places')
-            ->setParameter("nb_places", $criteria['nb_places'])
-            ->andWhere('t.prix >= :maximum_price')
-            ->setParameter("maximum_price", $criteria['maximum_price'])
+            ->setParameter('nb_places', $criteria['nb_places'])
+            ->andWhere('t.date_expiration < :date_depart')
+            ->setParameter("date_depart", $criteria['date_depart']->format('Y-m-d H:i:s'))
+            //->andWhere('t.prix >= :maximum_price')
+            //->setParameter("maximum_price", $criteria['maximum_price'])
             ->orderBy('t.prix', 'ASC');
-
 
         return $qb->getQuery()->getResult();
     }

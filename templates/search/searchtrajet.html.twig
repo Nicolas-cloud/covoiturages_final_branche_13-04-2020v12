@@ -3,58 +3,42 @@
 {% block title %}Recherche trajet | {{ parent() }}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="container">
-    <div class="section">
-        <div class="row">
-            <div class="col m6 offset-m3">
-                <h1>Recherche avancée</h1>
-                {{ form(search_form) }}
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col m6 offset-m3">
+                    <h1>Recherche avancée</h1>
+                    {{ form(search_form) }}
+                </div>
             </div>
-        </div>
-        {% if app.request.method == 'POST' %}
-        <div class="row">
-            <div class="col m6 offset-m3">
-                {% if trajets |length == 0 %}
-                    <h1>Aucun résultat pour votre recherche</h1>
-                {% else %}
-                    <h1>Résultat de la recherche</h1>
-                    {% for trajet in trajets %}
-                        <div>
-                            <h2>Ville de départ : {{ trajet.VilleDepart }}</h2>
-                            <h2>Ville d'arrivée : {{ trajet.VilleArrivee }}</h2>
-                            <h2>Heure de départ : {{ trajet.HeureDepart }}</h2>
-                            <h2>Heure d'arrivée : {{ trajet.HeureArrivee }}</h2>
-                            {% if trajet.NbPlaces |length > 0 %}
-                                <h2>Nombre de places disponibles : {{ trajet.NbPlaces }}</h2>
-                            {% elseif trajet.NbPlaces |length == 0  %}
-                                <h2>Nombre de place disponible : {{trajet.NbPlaces }}</h2>
-                            {% endif %}
-                            <h2>Prix du voyage : {{trajet.Prix }}</h2>
-                            <h2><a class="btn btn-primary btn-lg" href="{{  path('trajet.show', {'slug': trajet.slug}) }}">Détails</a>
-                        </div>
-                    {% endfor %}
-                {% endif %}
+            {% if app.request.method == 'POST' %}
+            <div class="row">
+                <div class="col m6 offset-m3">
+                    {% if trajets |length == 0 %}
+                        <h1>Aucun résultat pour votre recherche</h1>
+                    {% else %}
+                        <h1>Résultat de la recherche</h1>
+                        {% for trajet in trajets %}
+                            <div>
+                                <h2>Ville de départ : {{ trajet.VilleDepart }}</h2>
+                                <h2>Ville d'arrivée : {{ trajet.VilleArrivee }}</h2>
+                                <h2>Heure de départ : {{ trajet.HeureDepart|date('h:i:s') }}</h2>
+                                <h2>Heure d'arrivée : {{ trajet.HeureArrivee|date('h:i:s') }}</h2>
+                                {% if trajet.NbPlaces |length > 0 %}
+                                    <h2>Nombre de places disponibles : {{ trajet.NbPlaces }}</h2>
+                                {% elseif trajet.NbPlaces |length == 0  %}
+                                    <h2>Nombre de place disponible : {{trajet.NbPlaces }}</h2>
+                                {% endif %}
+                                <h2>Prix du voyage : {{trajet.Prix }}</h2>
+                                <h2><a class="btn btn-primary btn-lg" href="{{  path('trajet.show', {'slug': trajet.slug}) }}">Détails</a>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
+            {% endif %}
         </div>
-        {% endif %}
     </div>
-</div>
 
-{% endblock %}
-
-{% block javascript %}
-
-{{ parent() }}
-
-<script>
-    $(document).ready(function(){
-        $('select').formSelect();
-    });
-
-{% endblock %}
-
+    {% endblock %}

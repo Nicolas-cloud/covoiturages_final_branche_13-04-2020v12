@@ -4,82 +4,84 @@
 
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        
-        <style>
-            body{
-                overflow: scroll;
-            }
-                ul {
-                    list-style-type: none;
-                    margin: 5px;
-                    padding: 5px;
-                }
-                li a {
-                    display: block;
-                    margin:10px;
-                    padding:10px;
-                    text-align: center;
-                    padding: 14px 16px;
-                    color:#34393E;
-                    font-size:12pt;
-                }
-                a:link{
-                    text-decoration:none;
-                }
-                li a:hover {
-                    text: #585858;
-                }
-                .lien_left{
-                    float:left;
-                }
-                .lien_right{
-                    float:right;
-                }
-                .marge{
-                    margin-left:240px;
-                    margin-right:240px;
-                    margin-bottom:2%;
-                }
-            </style>
+
     </head>
 
-    {% block javascripts %}{% endblock %}
+    {% block javascript %}
+        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+    {% endblock %}
 
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
-                <uL>
+            <uL>
                 <div class="marge">
-                    <li><a href="{{ path('home') }}" class="lien_left"><i class="fa fa-home" style='font-size:15px; margin-right:5px;'></i>Accueil</a></li>
-                    <li><a href="{{ path('trajet.list') }}" class="lien_left"><i class="fa fa-car" style='font-size:15px; margin-right:5px;'></i>Trajets disponibles</a></li>
-                    <li><a href="{{ path('search.trajet') }}" class="lien_left"><i class="fa fa-search" style='font-size:15px; margin-right:5px;'></i>Rechercher</a></li> 
-                    <li><a href="{{ path('trajet.create') }}" class="lien_left"><i class="fa fa-plus" style='font-size:15px; margin-right:5px;'></i>Proposer un trajet</a></li>
-                    <li><a href="#" class="lien_left"><i class='far fa-comment' style='font-size:15px; margin-right:5px;'></i>Contactez-nous</a></li>
+                    <li><a href="{{ path('home') }}" class="lien_left"><i class="fa fa-home" style='font-size:20px; margin-right:5px;'></i>{% trans %}Home{% endtrans %}</a></li>
+                    <li><a href="{{ path('trajet.list') }}" class="lien_left"><i class="fa fa-car" style='font-size:15px; margin-right:5px;'></i>{% trans %}Available routes{% endtrans %}</a></li>
+                    <li><a href="{{ path('search.trajet') }}" class="lien_left"><i class="fa fa-search" style='font-size:15px; margin-right:5px;'></i>{% trans %}Search{% endtrans %}</a></li> 
+                    <li><a href="{{ path('trajet.create') }}" class="lien_left"><i class="fa fa-plus" style='font-size:15px; margin-right:5px;'></i>{% trans %}Suggest a route{% endtrans %}</a></li>
+                    <li><a href="#" class="lien_left"><i class='far fa-comment' style='font-size:15px; margin-right:5px;'></i>{% trans %}Contact us{% endtrans %}</a></li>
                     {% if is_granted('ROLE_USER') %}
-                        <li><a href="#" class="lien_left"><i class="fa fa-user" style='font-size:15px; margin-right:5px;'></i>Espace perso</a></li>
+                        <li><a href="#" class="lien_left"><i class="fa fa-user" style='font-size:15px; margin-right:5px;'></i>{% trans %}Private space{% endtrans %}</a></li>
                     {% endif %}
                     {% if is_granted('ROLE_USER') %}
-                        <li><a href="{{ path('app_logout') }}" class="lien_right">Se déconnecter</a></li>
+                        <li><a href="{{ path('app_logout') }}" class="lien_right">{% trans %}Sign out{% endtrans %}</a></li>
                     {% else %}
-                        <li><a href="{{ path('membre_create') }}" class="lien_right">Inscription</a></li>
+                        <li><a href="{{ path('membre_create') }}" class="lien_right">{% trans %}Registration{% endtrans %}</a></li>
                     {% endif %}
                     {% if is_granted('ROLE_USER') %}
                     {% else %}
-                        <li><a href="{{ path('app_login') }}" class="lien_right">Connexion</a></li>
+                        <li><a href="{{ path('app_login') }}" class="lien_right">{% trans %}Sign in{% endtrans %}</a></li>
                     {% endif %}
                     {% if is_granted('ROLE_ADMIN') %}
-                        <li><a href="{{ path('admin_administration') }}" class="lien_right">Administration</a></li>
+                        <li><a href="{{ path('admin_administration') }}" class="lien_right">{% trans %}Administration{% endtrans %}</a></li>
                     {% endif %}
+                    {% for locale in locales if locale != app.request.locale %}
+                        <li class="nav item activ">
+                            <a class="lien_right" href="{{ path('change_locale', {'locale' : locale}) }}"><img src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}"></a>
+                        </li>
+                    {% endfor %}
                 </div>
             </ul>
         </div>
     </nav>
 
+
+    
+    <section id="fixed-form-container">
+        <div class="button">Click Me!</div>
+            <div class="body">
+            <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd">
+        </div>
+        <div>
+
+
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </section>
+    
+
+
+
     <div class="container">
+
         {% block body %}
+
         {% endblock %}
     </div>
+
 </body>
 </html>
