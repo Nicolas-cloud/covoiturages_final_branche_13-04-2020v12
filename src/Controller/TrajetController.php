@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Trajet;
 use App\Entity\User;
 use App\Repository\TrajetRepository;
+use App\Form\EditTrajetType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -66,7 +67,7 @@ class TrajetController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($trajet);
-             $em->flush();
+            $em->flush();
             return $this->redirectToRoute('trajet.list');
         }
         return $this->render('trajet/create.html.twig', [
@@ -84,14 +85,15 @@ class TrajetController extends AbstractController
      */
     public function edit(Request $request, Trajet $trajet, EntityManagerInterface $em) : Response
     {
-        $form = $this->createForm(TrajetType::class, $trajet);
+        $form = $this->createForm(EditTrajetType::class, $trajet);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
+            $villeDepart = $form->get('ville_depart')->getData();
             $em->flush();
             return $this->redirectToRoute('trajet.list');
         }
-        return $this->render('trajet/create.html.twig', ['form' => $form->createView(),]);
+        return $this->render('trajet/edit.html.twig', ['form' => $form->createView(),]);
     }
 
     /**

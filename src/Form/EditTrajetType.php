@@ -6,33 +6,27 @@ use App\Entity\Trajet;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Length;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class TrajetType extends AbstractType
+class EditTrajetType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('ville_depart', TextType::class, [
-                'label' => 'Ville de départ',
-                'constraints' => [new NotBlank(),
-                    new Length(['max' => 255]),
-                ]
-            ])
+                'label' => 'Ville de Départ',
+                'disabled' => true,
+            ])          
             ->add('ville_arrivee', TextType::class, [
                 'label' => 'Ville d\'arrivée',
-                'constraints' => [new NotBlank(),
-                    new Length(['max' => 255]),
-                ]
-            ])
+                'disabled' => true,
+            ])              
             ->add('heure_depart', TimeType::class, [
                 'label' => 'Heure de départ',
                 'constraints' => [new NotBlank(),
@@ -43,21 +37,28 @@ class TrajetType extends AbstractType
                 'constraints' => [new NotBlank(),
                 ]
             ])
-            ->add('prix', NumberType::class)
+            ->add('prix', IntegerType::class, [
+                'constraints' => [new NotBlank(),
+                ]
+            ])
             ->add('nb_places', IntegerType::class, [
-                'label' => 'Nombre de places',
+                'label' => 'Nombre de places disponibles',
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Informations supplémentaires',
-            ])
-            ->add('date_modification', DateType::class, [
-                'label' => 'Date de modification',
-            ])
+            ])            
+            ->add('date_creation', DateType::class, [
+                'label' => 'Date de création',
+                'disabled' => true,
+            ])              
+            //->add('date_modification')
             ->add('date_expiration', DateType::class, [
                 'label' => 'Date d\'expiration',
                 'constraints' => [new NotBlank(),
                 ]
-            ]);
+            ])            
+            //->add('slug')
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

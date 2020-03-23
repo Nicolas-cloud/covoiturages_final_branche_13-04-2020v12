@@ -17,26 +17,26 @@ use Symfony\Component\Validator\Constraints\Length;
 
 class SearchTrajetType extends AbstractType
 {
-    CONST PRICE = [5, 10 , 15, 20];
+    CONST PRICE = [5, 10 , 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 100];
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     { 
         $builder
             ->add('ville_depart', TextType::class, [
-                'label' => 'Ville de départ',
+                'label' => 'D\'où voulez-vous partir ?',
                 'constraints' => [new NotBlank(),
                 ]
             ])
             ->add('ville_arrivee', TextType::class, [
-                'label' => 'Ville d\'arrivée',
+                'label' => 'Jusqu\'à ?',
                 'constraints' => [new NotBlank(),
                 ]
             ])
             ->add('date_depart', DateType::class, [
-                'label' => 'Quel jour ?', 
+                'label' => 'À partir de quel jour ?', 
             ])
             ->add('heure_depart', TimeType::class, [
-                'label' => 'À partir de ?',
+                'label' => 'À partir de quelle heure ?',
             ])
             ->add('nb_places', IntegerType::class, [
                 'label' => 'Nombre de places minimum',

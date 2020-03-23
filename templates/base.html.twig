@@ -32,7 +32,6 @@
         
     {% endblock %}
 
-
 <body>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -60,7 +59,7 @@
                     {% endif %}
                     {% for locale in locales if locale != app.request.locale %}
                         <li class="nav item activ">
-                            <a class="lien_right" href="{{ path('change_locale', {'locale' : locale}) }}"><img src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}"></a>
+                            <a class="lien_right" href="{{ path('change_locale', {'locale' : locale}) }}"><img src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}" style="height:26px;"></a>
                         </li>
                     {% endfor %}
                 </div>
@@ -69,20 +68,31 @@
     </nav>
 
     <section id="fixed-form-container">
-        <div class="button">Click Me!</div>
+        <div class="button">Contactez-nous!</div>
             <div class="body">
-            <div class="form-group">
-            <label for="email">Email address:</label>
-            <input type="email" class="form-control" id="email">
-        </div>
-        <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd">
-        </div>
-        <div class="checkbox">
-            <label><input type="checkbox"> Remember me</label>
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+                <h3>Bienvenue au service client de Blabla Car</h3>
+                <div class="form-group">
+                    {% if is_granted('ROLE_USER') %}
+                        <p>Service disponible entre 9h-12h et 13h/18h, tous les jours sauf le dimanche</p>
+                        <p><label for="pwd">Envoyez votre message, un technicien répondra au plus vite</label></p>
+                        <form name="message" action="">
+                            <input name="usermsg" type="text" id="usermsg" style="overflow: scroll;" size="40" />
+                            <input name="submitmsg" type="submit"  id="submitmsg" value="Envoyez" />
+                        </form>
+                    {% else %}
+                        <p>Pour parler à nos agents, veuillez vous connecter ou envoyez-nous un e-mail à blablacar@bcar.fr</p>
+                        <label for="pwd">E-mail:</label>
+                        <input type="email" class="form-control" id="email">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" id="pwd">
+                        <div class="checkbox">
+                            <label><input type="checkbox"> Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
         </div>
     </section>
     

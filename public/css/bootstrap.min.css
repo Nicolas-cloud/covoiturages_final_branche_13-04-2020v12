@@ -5,6 +5,7 @@ ul {
     list-style-type: none;
     margin-top: 10px;
     padding: 0px;
+    background: white;
 }
 li a {
     display: block;
@@ -14,13 +15,23 @@ li a {
     padding: 14px 16px;
     color:#34393E;
     font-size:12pt;
+    font-weight: bold;
 }
 a:link{
     text-decoration:none;
 }
+
 li a:hover {
-    color: #585858;
+    color: #318CE7;
+    background: #eee;   /* Liens actifs */
+
 }
+
+li a:active {
+  background: #FFC961;
+  color: #FFC961;
+}
+
 .lien_left{
     float:left;
 }
@@ -31,6 +42,7 @@ li a:hover {
     margin-left:200px;
     margin-right:200px;
     margin-bottom:0%;
+    margin-top: 0.8%;
 }
 
 #fixed-form-container{
@@ -91,10 +103,19 @@ box-shadow: 4px 0px 5px 0px rgba(0,0,0,0.3);
         left: 20px;
         width: 390px;
         text-align: left;
+        z-index: 1;
     }
 
     #fixed-form-container .body{
         padding: 30px;
         border-radius: 0px 5px 5px 5px;
     }
+}
+
+p, h3, h1 {
+    text-align: center;
+}
+
+.priorite{
+    z-index: 2;
 }
