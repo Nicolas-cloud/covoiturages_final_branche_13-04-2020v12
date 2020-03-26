@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 
@@ -39,7 +40,7 @@ class TrajetType extends AbstractType
                 ]
             ])
             ->add('heure_arrivee', TimeType::class, [
-                'label' => 'Heure d\'arrivee',
+                'label' => 'Heure d\'arrivée',
                 'constraints' => [new NotBlank(),
                 ]
             ])
@@ -50,14 +51,12 @@ class TrajetType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Informations supplémentaires',
             ])
-            ->add('date_modification', DateType::class, [
-                'label' => 'Date de modification',
-            ])
             ->add('date_expiration', DateType::class, [
                 'label' => 'Date d\'expiration',
                 'constraints' => [new NotBlank(),
                 ]
             ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

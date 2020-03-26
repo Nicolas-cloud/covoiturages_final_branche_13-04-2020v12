@@ -4,16 +4,36 @@
 
 {% block body %}
 
-    <h1>Modifier les informations de votre trajet :</h1>
+    <h1>Modifier les informations de votre trajet</h1><br>
 
-<div>
-    {{ form_start(form) }}
+    <div>
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="col-md-4">{{ form_row(form.ville_depart) }}</div>
+            <div class="col-md-4">{{ form_row(form.ville_arrivee) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">{{ form_row(form.heure_depart) }}</div>
+            <div class="col-md-4">{{ form_row(form.heure_arrivee) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">{{ form_row(form.nb_places) }}</div>
+            <div class="col-md-4">{{ form_row(form.prix) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">{{ form_row(form.description) }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">{{ form_row(form.date_creation) }}</div>
+            <div class="col-md-4">{{ form_row(form.date_expiration) }}</div>
+        </div>
+    </div>
+
     {{ form_widget(form) }}
 
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Enregistrer</button>
-        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
     </div>
+
     {{ form_end(form) }}
 {% endblock %}

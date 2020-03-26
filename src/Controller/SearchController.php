@@ -35,7 +35,7 @@ class SearchController extends AbstractController
         }
 
         return $this->render('search/searchtrajet.html.twig', [
-            'search_form' => $SearchTrajetForm->createView(),
+            'form' => $SearchTrajetForm->createView(),
             'trajets' => $trajets,
         ]);
     }

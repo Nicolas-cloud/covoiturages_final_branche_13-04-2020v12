@@ -3,15 +3,40 @@
 {% block title %}Nouveau trajet | {{ parent() }}{% endblock %}
 
 {% block body %}
+    <style>
+
+    </style>
+
     <h1>Proposer un nouveau trajet</h1><br>
 
     {{ form_start(form) }}
+
+    <div>
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.ville_depart) }}</div>
+        <div class="col-md-4">{{ form_row(form.ville_arrivee) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.heure_depart) }}</div>
+        <div class="col-md-4">{{ form_row(form.heure_arrivee) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.nb_places) }}</div>
+        <div class="col-md-4">{{ form_row(form.prix) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.description) }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">{{ form_row(form.date_expiration) }}</div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </div>
+</div>
     {{ form_widget(form) }}
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button type="submit" class="btn btn-default">Enregistrer</button>
-        </div>
-    </div>
+
     {{ form_end(form) }}
 {% endblock %}

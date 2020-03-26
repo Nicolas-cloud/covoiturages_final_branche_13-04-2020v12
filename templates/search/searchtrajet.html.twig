@@ -4,12 +4,36 @@
 
 {% block body %}
 
+    <style>
+        .row{
+        }
+    </style>
+
     <div class="container">
         <div class="section">
             <div class="row">
+
                 <div class="col m6 offset-m3">
                     <h1>Recherche avancée</h1><br>
-                    {{ form(search_form) }}
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-md-4">{{ form_row(form.ville_depart) }}</div>
+                        <div class="col-md-4">{{ form_row(form.ville_arrivee) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">{{ form_row(form.date_depart) }}</div>
+                        <div class="col-md-4">{{ form_row(form.heure_depart) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">{{ form_row(form.nb_places) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">{{ form_row(form.maximum_price) }}</div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+
                 </div>
             </div>
             {% if app.request.method == 'POST' %}

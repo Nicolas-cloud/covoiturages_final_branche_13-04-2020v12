@@ -20,7 +20,7 @@ class EditTrajetType extends AbstractType
     {
         $builder
             ->add('ville_depart', TextType::class, [
-                'label' => 'Ville de Départ',
+                'label' => 'Ville de départ',
                 'disabled' => true,
             ])          
             ->add('ville_arrivee', TextType::class, [
@@ -50,7 +50,7 @@ class EditTrajetType extends AbstractType
             ->add('date_creation', DateType::class, [
                 'label' => 'Date de création',
                 'disabled' => true,
-            ])              
+            ])             
             //->add('date_modification')
             ->add('date_expiration', DateType::class, [
                 'label' => 'Date d\'expiration',
