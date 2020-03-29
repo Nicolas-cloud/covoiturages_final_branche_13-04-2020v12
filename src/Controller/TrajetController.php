@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Trajet;
 use App\Entity\User;
+use App\Security\Voter\TrajetPostVoter;
 use App\Repository\TrajetRepository;
 use App\Form\EditTrajetType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +15,6 @@ use App\Form\TrajetType;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-
 
 class TrajetController extends AbstractController
 {
@@ -63,6 +63,8 @@ class TrajetController extends AbstractController
      */
     public function create(Request $request, EntityManagerInterface $em) : Response {
         $trajet = new Trajet();
+        // $user = $this->getUser()->getId();
+        // $trajetIdUser->setIdUser($user);
         $form = $this->createForm(TrajetType::class, $trajet);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -78,17 +80,19 @@ class TrajetController extends AbstractController
     /**
      * Éditer un trajet.
      * @IsGranted("ROLE_USER")
+     * @IsGranted("edit", subject="post", message="Posts can only be edited by their authors.")
      * @Route("trajet/{slug}/edit", name="trajet.edit")
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return RedirectResponse|Response
      */
-    public function edit(Request $request, Trajet $trajet, EntityManagerInterface $em) : Response
+    public function edit(Request $request, Trajet $trajet, EntityManagerInterface $em, TrajetPostVoter $post) : Response
     {
         $form = $this->createForm(EditTrajetType::class, $trajet);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid())
         {
+           // $user = $this->getUser()->getId();
             $villeDepart = $form->get('ville_depart')->getData();
             $em->flush();
             return $this->redirectToRoute('trajet.list');
