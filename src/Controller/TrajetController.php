@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Trajet;
 use App\Entity\User;
-use App\Security\Voter\TrajetPostVoter;
+use App\Security\TrajetVoter;
 use App\Repository\TrajetRepository;
 use App\Form\EditTrajetType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,14 +26,14 @@ class TrajetController extends AbstractController
      */
     public function list(EntityManagerInterface $em) : Response
     {
-        $trajets = $this->getDoctrine()->getRepository(Trajet::class)->getTrajetsNonExpires();
-
         /*
         $stages = $this->getDoctrine()->getRepository(Stage::class)->findAll();        createQuery(
             'SELECT t FROM App:Trajet t WHERE t.date_expiration > :date'
         )->setParameter('date', new \DateTime());
         $trajets = $query->getResult();
         */
+
+        $trajets = $this->getDoctrine()->getRepository(Trajet::class)->getTrajetsNonExpires();
 
         return $this->render('trajet/list.html.twig', [
             'trajets' => $trajets,
@@ -63,8 +63,7 @@ class TrajetController extends AbstractController
      */
     public function create(Request $request, EntityManagerInterface $em) : Response {
         $trajet = new Trajet();
-        // $user = $this->getUser()->getId();
-        // $trajetIdUser->setIdUser($user);
+        $trajet->setAutheur($this->getUser());
         $form = $this->createForm(TrajetType::class, $trajet);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -77,32 +76,33 @@ class TrajetController extends AbstractController
         ]);
     }
     
-    /**
+/**
      * Éditer un trajet.
      * @IsGranted("ROLE_USER")
-     * @IsGranted("edit", subject="post", message="Posts can only be edited by their authors.")
+     * @IsGranted("edit", subject="trajet", message="Trajets can only be edited by their authors.")
      * @Route("trajet/{slug}/edit", name="trajet.edit")
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return RedirectResponse|Response
      */
-    public function edit(Request $request, Trajet $trajet, EntityManagerInterface $em, TrajetPostVoter $post) : Response
+    public function edit(Request $request, Trajet $trajet, EntityManagerInterface $em): Response
     {
         $form = $this->createForm(EditTrajetType::class, $trajet);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-           // $user = $this->getUser()->getId();
-            $villeDepart = $form->get('ville_depart')->getData();
+        if ($form->isSubmitted() && $form->isValid()) {
+            // $user = $this->getUser()->getId();
+            // $villeDepart = $form->get('ville_depart')->getData(); // VilleDepart n'est pas utilisé ???
             $em->flush();
             return $this->redirectToRoute('trajet.list');
         }
+
         return $this->render('trajet/edit.html.twig', ['form' => $form->createView(),]);
     }
 
     /**
      * Supprimer un trajet
      * @IsGranted("ROLE_USER")
+     * @IsGranted("delete", subject="trajet", message="Trajets can only be deleted by their authors.")
      * @Route("trajet/{slug}/delete", name="trajet.delete")
       * @param Request $request
      * @param Trajet $trajet

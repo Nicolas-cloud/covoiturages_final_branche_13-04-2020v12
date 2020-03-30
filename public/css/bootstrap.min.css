@@ -116,6 +116,12 @@ p, h3, h1 {
     text-align: center;
 }
 
+h5{
+    font-size: 23px;
+    font-style: italic;
+
+}
+
 .priorite{
     z-index: 2;
 }

@@ -89,6 +89,11 @@ class Trajet
      */
     private $slug;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="trajets")
+     */
+    private $Autheur;
+
 
     public function __construct()
     {
@@ -96,8 +101,7 @@ class Trajet
         $this->avis = new ArrayCollection();
     }
 
-
-
+    
     /**
      * @ORM\PrePersist()
      */
@@ -314,6 +318,18 @@ class Trajet
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getAutheur(): ?User
+    {
+        return $this->Autheur;
+    }
+
+    public function setAutheur(?User $Autheur): self
+    {
+        $this->Autheur = $Autheur;
 
         return $this;
     }

@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -57,6 +59,16 @@ class User implements UserInterface
      * @ORM\Column(type="date")
      */
     private $annee_naissance;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Trajet", mappedBy="Autheur")
+     */
+    private $trajets;
+
+    public function __construct()
+    {
+        $this->trajets = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -192,6 +204,37 @@ class User implements UserInterface
     public function setAnneeNaissance(\DateTimeInterface $annee_naissance): self
     {
         $this->annee_naissance = $annee_naissance;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Trajet[]
+     */
+    public function getTrajets(): Collection
+    {
+        return $this->trajets;
+    }
+
+    public function addTrajet(Trajet $trajet): self
+    {
+        if (!$this->trajets->contains($trajet)) {
+            $this->trajets[] = $trajet;
+            $trajet->setAutheur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTrajet(Trajet $trajet): self
+    {
+        if ($this->trajets->contains($trajet)) {
+            $this->trajets->removeElement($trajet);
+            // set the owning side to null (unless already changed)
+            if ($trajet->getAutheur() === $this) {
+                $trajet->setAutheur(null);
+            }
+        }
 
         return $this;
     }
