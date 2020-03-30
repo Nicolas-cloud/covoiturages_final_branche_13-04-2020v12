@@ -4,28 +4,46 @@
 
 
 {% block head %}
-    {% block stylesheets %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        {% block style %}
-            h1{
-                color:red;
-            }
-        {% endblock %}
+
+    {% block stylesheets %}
+
+
     {% endblock stylesheets %}
 {% endblock head %}
 
 {% block body %}
 
-    <h1>Administration</h1>
-    <ul>
-        <li><a href="#">Modérer utilisateurs</a></li>
-        <ul>
-            <li><a href="#">Ajouter un utilisateur</a></li>
-            <li><a href="{{ path('admin_utilisateurs') }}">Liste des utilisateurs</a></li>
-        </ul>
-            <li><a href="#">Paramètres</a></li>
-            <li><a href="#">Chat modérateurs</a></li>
-        <li><a href="#">Web Design</a></li>
-    </ul>
+    <style>
+        th{
+            text-align: center;
+            height: 75px;
+        }
 
+
+    </style>
+
+    <h1>Administration</h1><br><br>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+
+        </thead>
+        <tbody> 
+            <tr>
+                <th class="table-dark"><br><a href="#">Ajouter un utilisateur</a></th>
+            </tr>
+            <tr>
+                <th><br><a href="{{ path('admin_utilisateurs') }}">Modérer utilisateurs</a></th>
+            </tr>
+            <tr>
+                <th><br><a href="#">Paramètres</a></th>
+            </tr>
+            <tr>
+                <th><br><a href="#">Chat modérateurs</a></th>
+            </tr>
+            <tr>
+                <th><br><a href="#">Web Design</a></th>
+            </tr>
+        </tbody>
+    </table>
 {% endblock %}

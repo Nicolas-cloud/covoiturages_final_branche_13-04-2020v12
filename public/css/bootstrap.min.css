@@ -39,8 +39,8 @@ li a:active {
     float:right;
 }
 .marge{
-    margin-left:200px;
-    margin-right:200px;
+    margin-left:170px;
+    margin-right:170px;
     margin-bottom:0%;
     margin-top: 0.8%;
 }
@@ -114,6 +114,11 @@ box-shadow: 4px 0px 5px 0px rgba(0,0,0,0.3);
 
 p, h3, h1 {
     text-align: center;
+}
+
+h1{
+    color: #2D4F5C;
+    font-size: 45px;
 }
 
 h5{
