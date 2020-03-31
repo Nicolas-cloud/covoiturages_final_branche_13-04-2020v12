@@ -10,7 +10,10 @@ use App\Controller\TrajetController;
 use App\Entity\Trajet;
 use Doctrine\ORM\EntityManagerInterface;
 
-
+/**
+ * @Route("/{_locale}") 
+ * 
+ */
 class SecurityController extends AbstractController
 {
     /**

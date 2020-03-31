@@ -16,18 +16,13 @@ class ReservationFixtures extends Fixture
     public function load(ObjectManager $manager) : void
     {
         $reservation1 = new Reservation();
-        $reservation1->setValidation(true)
-        ->setDateReservation(new \DateTime('02-04-2020'))
-        ->setAnnulation(false);
-
-
-
+        $reservation1->setDateReservation(new \DateTime('02-04-2020'))
+            ->setValidation(true)
+            ->setAnnulation(false);
         $manager->persist($reservation1);
 
 
         $manager->flush();
-
-        $this->addReference('nantes-Paris', $reservation1);
 
     }
 }

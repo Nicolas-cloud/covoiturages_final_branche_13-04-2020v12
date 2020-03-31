@@ -10,7 +10,10 @@ use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
+/**
+ * 
+ *  @Route("/{_locale}") 
+ */
 class SearchController extends AbstractController
 {
     /**
@@ -27,10 +30,10 @@ class SearchController extends AbstractController
         $SearchTrajetForm = $formBuilder->getForm();
         // $SearchTrajetForm->handleRequest($request);
         */
-        
+
         if ($SearchTrajetForm->handleRequest($request)->isSubmitted() && $SearchTrajetForm->isValid()) {
             $criteria = $SearchTrajetForm->getData();
-                //  dd($criteria);
+            dd($criteria);
             $trajets = $trajetRepository->searchTrajet($criteria);
         }
 

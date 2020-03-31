@@ -38,11 +38,10 @@
         <div class="container-fluid">
             <uL>
                 <div class="marge">
-                    <li><a href="{{ path('home') }}" class="lien_left"><i class="fa fa-home" style='font-size:20px; margin-right:5px;'></i>{% trans %}Home{% endtrans %}</a></li>
-                    <li><a href="{{ path('trajet.list') }}" class="lien_left"><i class="fa fa-car" style='font-size:15px; margin-right:5px;'></i>{% trans %}Available routes{% endtrans %}</a></li>
+                    <li><a href="{{ path('home') }}" class="lien_left"><i class="fa fa-home" style='font-size:20px; margin-right:5px;'></i>{{'Home'|trans}}</a></li>
+                    <li><a href="{{ path('trajet.list') }}" class="lien_left"><i class="fa fa-car" style='font-size:15px; margin-right:5px;'></i>{{'Available routes'|trans}}</a></li>
                     <li><a href="{{ path('search.trajet') }}" class="lien_left"><i class="fa fa-search" style='font-size:15px; margin-right:5px;'></i>{% trans %}Search{% endtrans %}</a></li> 
                     <li><a href="{{ path('trajet.create') }}" class="lien_left"><i class="fa fa-plus" style='font-size:15px; margin-right:5px;'></i>{% trans %}Suggest a route{% endtrans %}</a></li>
-                    <li><a href="#" class="lien_left"><i class='far fa-comment' style='font-size:15px; margin-right:5px;'></i>{% trans %}Contact us{% endtrans %}</a></li>
                     {% if is_granted('ROLE_USER') %}
                         <li><a href="#" class="lien_left"><i class="fa fa-user" style='font-size:15px; margin-right:5px;'></i>{% trans %}Private space{% endtrans %}</a></li>
                     {% endif %}
@@ -58,9 +57,9 @@
                     {% if is_granted('ROLE_ADMIN') %}
                         <li><a href="{{ path('admin_administration') }}" class="lien_right">{% trans %}Administration{% endtrans %}</a></li>
                     {% endif %}
-                    {% for locale in locales if locale != app.request.locale %}
+                    {% for key, locale in locales if key != app.request.locale %}
                         <li class="nav item activ">
-                            <a class="lien_right" href="{{ path('change_locale', {'locale' : locale}) }}"><img src="{{ asset('img/'~locale~'.png') }}" alt="{{locale}}" style="height:26px;"></a>
+                            <a class="lien_right" href="{{ path(app.request.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': key})) }}"><img src="{{ asset('img/'~key~'.png') }}" alt="{{locale}}" style="height:24px;">  </a>
                         </li>
                     {% endfor %}
                 </div>
@@ -69,7 +68,7 @@
     </nav>
 
     <section id="fixed-form-container">
-        <div class="button"><i class='fa fa-help' style="font-size:15px; margin-right : 5px;"></i>Contactez-nous!</div>
+        <div class="button"><i class='far fa-comment' style='font-size:15px; margin-right:5px;'></i> {% trans %}Contact us{% endtrans %} !</div>
             <div class="body">
                 <h3>Bienvenue au service client de Blabla Car</h3>
                 <div class="form-group">
@@ -84,12 +83,12 @@
                         <p>Pour parler à nos agents, veuillez vous connecter ou envoyez-nous un e-mail à blablacar@bcar.fr</p>
                         <label for="pwd">E-mail:</label>
                         <input type="email" class="form-control" id="email">
-                        <label for="pwd">Password:</label>
+                        <label for="pwd">{% trans %}Password{% endtrans %}:</label>
                         <input type="password" class="form-control" id="pwd">
                         <div class="checkbox">
-                            <label><input type="checkbox"> Remember me</label>
+                            <label><input type="checkbox">{% trans %} Remember me {% endtrans %}</label>
                         </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-default">{% trans %}Submit{% endtrans %}</button>
                         </div>
                     {% endif %}
                 </div>

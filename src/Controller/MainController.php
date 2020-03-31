@@ -7,6 +7,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 
+/**
+ * 
+ * @Route("/{_locale}") 
+ * 
+ */
 class MainController extends AbstractController
 {
     /**

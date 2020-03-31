@@ -2,15 +2,13 @@ body{
 overflow: scroll;
 }
 ul {
-    list-style-type: none;
     margin-top: 10px;
+    list-style-type: none;
     padding: 0px;
     background: white;
 }
 li a {
     display: block;
-    margin:10px;
-    padding:10px;
     text-align: center;
     padding: 14px 16px;
     color:#34393E;
@@ -28,8 +26,8 @@ li a:hover {
 }
 
 li a:active {
-  background: #FFC961;
-  color: #FFC961;
+  background: #34393E;
+  color: #34393E;
 }
 
 .lien_left{
@@ -39,10 +37,9 @@ li a:active {
     float:right;
 }
 .marge{
-    margin-left:170px;
-    margin-right:170px;
+    margin-left:120px;
+    margin-right:120px;
     margin-bottom:0%;
-    margin-top: 0.8%;
 }
 
 #fixed-form-container{

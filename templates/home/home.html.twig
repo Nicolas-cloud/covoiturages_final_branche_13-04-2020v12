@@ -31,8 +31,7 @@
             position: absolute;
             text-align: center;
             width: 100%;
-            top: 78%;
-
+            top: 77%;
         }
         .header1{
             font-size: 5rem;
@@ -44,12 +43,19 @@
         }
         .image{
             margin-left: 0px;
-            width:120%;
             z-index: 1;
         }
+        .body{
+            color: black;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            top: 105%;
+        }
+
     </style>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="banner">
                 <div class="image">
@@ -58,6 +64,9 @@
                 <div class="header">
                     <h2 class="header1">Vous vous déplacez ?</h2>
                     <h4 class="header2">Vous pouvez partagez vos trajets à plusieurs !</h4>
+                </div>
+                <div class="body">
+                    <p><a href="{{ path('search.trajet') }}" <button type="button" class="btn btn-default btn-lg">Rechercher un trajet</a></p>
                 </div>
             </div>
         </div>

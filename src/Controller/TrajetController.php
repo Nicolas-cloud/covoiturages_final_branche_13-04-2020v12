@@ -16,6 +16,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+
+/**
+ * 
+ *   @Route("/{_locale}") 
+ */
 class TrajetController extends AbstractController
 {
     /**
@@ -63,7 +68,7 @@ class TrajetController extends AbstractController
      */
     public function create(Request $request, EntityManagerInterface $em) : Response {
         $trajet = new Trajet();
-        $trajet->setAutheur($this->getUser());
+        $trajet->setAutheur($this->getUser()); // il faut faire correspondre le createur du trajet à la personne qui veut éditer ou supprimer
         $form = $this->createForm(TrajetType::class, $trajet);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -91,7 +96,7 @@ class TrajetController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // $user = $this->getUser()->getId();
-            // $villeDepart = $form->get('ville_depart')->getData(); // VilleDepart n'est pas utilisé ???
+            $villeDepart = $form->get('ville_depart')->getData(); // VilleDepart n'est pas utilisé ???
             $em->flush();
             return $this->redirectToRoute('trajet.list');
         }

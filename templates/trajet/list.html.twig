@@ -15,7 +15,7 @@
 
     <style>
         .block{
-            width:100%;
+            width:92%;
 	        height:100%;
             border-color: red;
             margin-top: 10px;
@@ -23,7 +23,7 @@
         }
 
     </style>
-    <h1>Liste des derniers trajets</h1>
+    <h1>{% trans %}Lasts routes created{% endtrans %}</h1>
     <div class="media" style="margin-top: 30px;">
         <div class="container">
             <div class="row">
@@ -34,19 +34,24 @@
                                 <h5 class="card-title" style="text-align:center;">
                                     <a href="{{ path('trajet.show', {'slug': trajet.slug}) }}">{{ trajet.VilleDepart }} - {{ trajet.VilleArrivee }}</a>
                                 </h5>
-                                <p class="text-danger">Départ à {{ trajet.HeureDepart|date('h:i:s') }}</p>
-                                <p class="card-time">Arrivée vers {{ trajet.HeureArrivee|date('h:i:s') }}</p>
-                                <p class="text-default">{{ trajet.NbPlaces }} places disponibles</p>
-                                <p class="card-text">{{ trajet.Prix|number_format(0, '', '') }}€</p>
-                                <p class="text-info">Expire le {{ trajet.DateExpiration|date('d/m/Y') }}</p>
+                                <p class="text-time">{% trans %}Departure time{% endtrans %} : {{ trajet.HeureDepart|date('h:i:s') }}</p>
+                                <p class="text-time">{% trans %}Departure arrival{% endtrans %} : {{ trajet.HeureArrivee|date('h:i:s') }}</p>
+                                <p class="text-default"><strong>{{ trajet.NbPlaces }}</strong> {% trans %} places availables {% endtrans %}</p>
+                                <p class="card-text">{{ trajet.Prix|number_format(0, '', '') }}.00 €</p>
+                                <p class="text-info">{% trans %}Expire on{% endtrans %} {{ trajet.DateExpiration|date('d/m/Y') }}</p>
                                 <p class="card-button">
-                                <a class="btn btn-info" href="{{ path('trajet.show', {'slug': trajet.slug}) }}">Voir les infos</a>
-                                    <a class="btn btn-warning" href="{{ path('trajet.edit',{ 'slug': trajet.slug }) }}">
+                                    <a class="btn btn-info" href="{{ path('trajet.show', {'slug': trajet.slug}) }}">{% trans %}Show informations{% endtrans %}</a>
+                                    {% if is_granted("ROLE_USER") %}
+                                        <a class="btn btn-warning" href="{{ path('trajet.edit',{ 'slug': trajet.slug }) }}">
+                                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                            {% trans %}Edit{% endtrans %}</a>
+                                    {% endif %}
+                                    <a class="btn btn-primary" href="{{ path('trajet_reservation', {'slug': trajet.slug}) }}">{% trans %}Book a place{% endtrans %}</a>
+                                    {% if is_granted("ROLE_USER") %}
+                                        <a class="btn btn-danger" href="{{ path('trajet.delete',{ 'slug':trajet.slug }) }}">
                                         <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                        Éditer</a>
-                                    <a class="btn btn-danger" href="{{ path('trajet.delete',{ 'slug':trajet.slug }) }}">
-                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                                        Supprimer</a>
+                                        {% trans %}Delete{% endtrans %}</a>
+                                    {% endif %}
                                 </p>
                             </div>
                         </div>

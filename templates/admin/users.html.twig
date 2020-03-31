@@ -48,9 +48,9 @@
                     </td>
                     <td>
                         <a href="{{ path('admin_modifier_utilisateur', {'id': user.id}) }}"
-                        class="btn-warning">Modifier</a>
+                        class="btn-warning">{% trans %}Modify{% endtrans %}</a>
                         <a href="{{ path('admin_delete', {'id': user.id}) }}"
-                        class="btn-danger">Supprimer</a>
+                        class="btn-danger">{% trans %}Delete{% endtrans %}</a>
                     </td>
                 </tr>
             {% else %}

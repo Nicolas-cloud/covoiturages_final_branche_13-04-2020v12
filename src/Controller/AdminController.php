@@ -16,7 +16,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 
 /**
- * @Route("/admin", name="admin_")
+ * @Route("/{_locale}/admin", name="admin_")
  **/
 class AdminController extends AbstractController
 {

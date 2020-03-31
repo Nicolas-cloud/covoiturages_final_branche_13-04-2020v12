@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reservation
 {
+
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -34,7 +36,13 @@ class Reservation
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Trajet", inversedBy="reservations")
      */
-    private $reserve_trajet;
+    private $Passager;
+
+    public function __construct(){
+    
+        $this->date_reservation = new \DateTime();
+    
+    }
 
     public function getId(): ?int
     {
@@ -77,15 +85,16 @@ class Reservation
         return $this;
     }
 
-    public function getReserveTrajet(): ?Trajet
+    public function getPassager(): ?Trajet
     {
-        return $this->reserve_trajet;
+        return $this->Passager;
     }
 
-    public function setReserveTrajet(?Trajet $reserve_trajet): self
+    public function setPassager(?Trajet $Passager): self
     {
-        $this->reserve_trajet = $reserve_trajet;
+        $this->Passager = $Passager;
 
         return $this;
     }
+
 }

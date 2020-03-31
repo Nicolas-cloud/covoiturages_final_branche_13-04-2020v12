@@ -6,18 +6,22 @@
 {% endblock %}
 
 {% block body %}
-<div>
+    <style>
+        .bod{
+            text-align:center;
+        }
+    </style>
+<div class="bod">
     <div>
-        <h1>Félicitations ! Votre compte a bien été créé.</h1>
+        <h1>{% trans %}Congratulations ! Your account has been well created{% endtrans %}</h1>
     </div>
     <div>
-        <h3>Votre compte a bien été crée. Voulez-vous vous authentifier ?</h3>
+        <h3>Votre compte a bien été crée.</h3>
+        <a href="{{ path('app_login') }}" <button type="button" class="btn btn-primary">Cliquez ici pour vous authentifier</a> 
     </div>
+    {#
     <div>
-        <a href="{{ path('app_login') }}" <button type="button" class="btn btn-primary">Cliquez ici pour vous connecter à votre compte</a> 
+    You are logged in as <a href="{{ path('app_logout') }}">{% trans %}Logout{% endtrans %}</a>
     </div>
-    <div>
-    You are logged in as <a href="{{ path('app_logout') }}">Logout</a>
-    </div>
-
+    #}
 {% endblock %}
