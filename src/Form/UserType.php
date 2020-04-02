@@ -40,6 +40,8 @@ class UserType extends AbstractType
             'label' => 'Rôle',
             ])
             ->add('password', PasswordType::class)
+            ->add('password_confirm', PasswordType::class)
+
                     //'type' => PasswordType::class,
                     //'first_options'  => array('label' => 'Mot de passe'),
                     //'second_options' => array('label' => 'Confirmer le mot de passe'),
@@ -74,7 +76,6 @@ class UserType extends AbstractType
                 'placeholder' => 'Select',
                 'label' => 'Date de naissance'
             ])
-            ->add('Valider', SubmitType::class)
         ;
     }
 

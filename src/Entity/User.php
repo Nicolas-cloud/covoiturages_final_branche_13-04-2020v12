@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -21,6 +23,10 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * UniqueEntity(
+     *  fields={"email"},
+     *  message="L'email que vous avez saisi est déjà utilisé"
+     * )
      */
     private $email;
 
@@ -32,6 +38,7 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire minimum 8 caractères")
      */
     private $password;
 
@@ -64,6 +71,12 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Trajet", mappedBy="Autheur")
      */
     private $trajets;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\EqualTo(propertyPath="password", message="Les deux mots de passes doivent être égaux")
+     */
+    private $password_confirm;
 
     public function __construct()
     {
@@ -235,6 +248,18 @@ class User implements UserInterface
                 $trajet->setAutheur(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPasswordConfirm(): ?string
+    {
+        return $this->password_confirm;
+    }
+
+    public function setPasswordConfirm(string $password_confirm): self
+    {
+        $this->password_confirm = $password_confirm;
 
         return $this;
     }

@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * @Route("/", name="membre_")
+ * @Route("/{_locale}", name="membre_")
  **/
 class MembreController extends AbstractController
 {
