@@ -39,9 +39,8 @@ class TrajetRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('t')
             //->leftJoin('t.ville_depart', 'ville_depart')
-            //->leftJoin('t.ville_arrivee', 'ville_arrivee')
-            //->where('t.ville_depart = :ville_depart')
-            //->setParameter("ville_depart", $criteria['ville_depart']) 
+            ->where('t.ville_depart = :ville_depart')
+            ->setParameter('ville_depart', $criteria['ville_depart']); 
             //->andWhere('t.ville_arrivee = :ville_arrivee')
             //->setParameter("ville_arrivee", $criteria['ville_arrivee'])
             //->andWhere('t.nb_places >= :nb_places')
@@ -50,7 +49,6 @@ class TrajetRepository extends ServiceEntityRepository
             //->setParameter("date_depart", $criteria['date_depart']->format('Y-m-d'))
             //->andWhere('t.prix >= :maximum_price')
             //->setParameter("maximum_price", $criteria['maximum_price'])
-            ->orderBy('t.prix', 'ASC');
 
         return $qb->getQuery()->getResult();
     }

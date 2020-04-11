@@ -17,8 +17,8 @@
 
 body {
     overflow-y: scroll;
-    background: #2a2e43;
-    background: -webkit-gradient(linear, left top, left bottom, from(#2a2e43), to(#96aad3));
+    background: #ae44c4;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ae44c4), to(#e7b2e0));
     background: linear-gradient(to bottom, #151825 0%, #97b0e4 100%);
     color: black;
 }
@@ -49,7 +49,8 @@ li a:hover {
 }
 
 li a:active {
-    color: #5369d4;
+    background: #34393E;
+    color: #34393E;
 }
 
 .lien_left {
@@ -84,8 +85,7 @@ les couleurs du texte, + position texte
     font-size: 45px;
     text-align: center;
     color: white;
-    font-style: Oblique;
-    font-weight: 800;
+    font-style: italic;
 }
 
 p {
@@ -141,21 +141,9 @@ cadre css pour les trajets
 ligne separation affichage recherche
 **/
 
-.line {}
-
-
-/**
-css affichage chemin
-**/
-
-.afficher-route {
-    position: static;
-    float: right;
-}
-
-.afficher-route p {
-    color: #151825;
-    font-style: oblique;
-    font-size: 16px;
-    font-weight: bolder;
+.line {
+    width: 100%;
+    height: 20px;
+    ;
+    background: black;
 }

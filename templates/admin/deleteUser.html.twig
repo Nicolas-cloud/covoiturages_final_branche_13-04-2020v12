@@ -1,25 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Supprimer utilisateur | {{ parent() }}{% endblock %}
+{% block title %}{% trans %}Delete user{% endtrans %}| {{ parent() }}{% endblock %}
 
 {% block body %}
-
+    <div class="title">{% trans %}Delete a user{% endtrans %}</div>
     <div class="alert alert-danger">
-        <strong>Avertissement !</strong> Vous êtes en train de supprimer l'utilisateur suivant :
+        <strong>{% trans %}Carefull{% endtrans %} !</strong> {% trans %}You are going to delete this user {% endtrans %} :
         <ul>
-            <li><strong>Nom : </strong> {{ user.Nom }}</li>
-            <li><strong>Pseudo : </strong>{{ user.Pseudo }}</li>
+            <li><strong>{% trans %}Lastname{% endtrans %} : </strong> {{ user.Nom }}</li>
+            <li><strong>{% trans %}Pseudo{% endtrans %} : </strong>{{ user.Pseudo }}</li>
 
         </ul>
     </div>
     <div class="collapse navbar-collapse">
     {{ form_start(form, {'attr': {'class': 'navbar-form navbar-left'}}) }}
     {{ form_widget(form) }}
-        <a href="{{ path('admin_utilisateurs') }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>Annuler</a>
-        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes vous sûr ??')">
+        <a href="{{ path('admin_utilisateurs') }}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-off" aria-hidden="true"></span>{% trans %}Cancel{% endtrans %}</a>
+        <button type="submit" class="btn btn-danger" onclick="return confirm('{% trans %}Are you sure{% endtrans %} ??')">
         <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-        Supprimer
+        {% trans %}Delete{% endtrans %}
     </button>
     {{ form_end(form) }}
     </div>
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Administration{% endtrans %}
+		→
+		{% trans %}Delete user{% endtrans %}</p>
+</div>
+
+
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recherche trajet | {{ parent() }}{% endblock %}
+{% block title %}Recherche de trajet | {{ parent() }}{% endblock %}
 
 {% block body %}
 
@@ -8,61 +8,92 @@
         .row{
             margin-left: 25%;
         }
+        
     </style>
     
-    <h1>Recherche avancée</h1><br>
+    <div class="title">{% trans %}Advanced search{% endtrans %}</div><br>
     <div class="container">
 
         <div class="section">
             <div class="col m6 offset-m3">
                 {{ form_start(form) }}
+
                 <div class="row">
-                    <div class="col-md-4">{{ form_row(form.ville_depart) }}</div>
-                    <div class="col-md-4">{{ form_row(form.ville_arrivee) }}</div>
+                    <div class="col-md-4">{{ form_row(form.ville_depart, {'label': 'Departure city', 'attr': {'placeholder': 'Ville de départ ...'}}) }}</div>
+                    <div class="col-md-4">{{ form_row(form.ville_arrivee, {'label': 'Arrival city', 'attr': {'placeholder': 'Ville d\'arrivée ...'}}) }}</div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">{{ form_row(form.date_depart) }}</div>
                     <div class="col-md-4">{{ form_row(form.heure_depart) }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">{{ form_row(form.nb_places) }}</div>
+                    <div class="col-md-4">{{ form_row(form.nb_places, {'label': 'Nombre de places', 'attr': {'placeholder': 'Combien de places ...'}}) }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">{{ form_row(form.maximum_price) }}</div>
+                    <div class="col-md-4">{{ form_row(form.maximum_price, {'label': 'Prix maximum'}) }}</div>
                 </div>
                 <div class="row">
                     <div class="form-group" style="margin-left:2%;">
-                        <button type="submit" class="btn btn-primary">{{'Submit'|trans}}</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
+
+                {{ form_widget(form) }}
+
+                {{ form_end(form) }}
+
             </div>
             {% if app.request.method == 'POST' %}
             <div class="row">
                 <div>
+                    <div class="container-fluid">
+                        <div class="line">
+                            <i class='fa-caret-square-o-down' style='font-size:100px;'></i>
+                        </div>
+                    </div>
+
                     {% if trajets |length == 0 %}
-                        <h1>Aucun résultat pour votre recherche</h1>
+                        <div class="title">{% trans %}There is no result wich match your search{% endtrans %}</div>
                     {% else %}
-                        <h1>Résultat de la recherche</h1>
+                        <div class="title" style="margin-right:50%;">
+                            <i class='fa fa-caret-square-o-down' style='font-size:100px;'></i>{% trans %}Results{% endtrans %}
+                        </div>
                         {% for trajet in trajets %}
-                            <div>
-                                <h2>Ville de départ : {{ trajet.VilleDepart }}</h2>
-                                <h2>Ville d'arrivée : {{ trajet.VilleArrivee }}</h2>
-                                <h2>Heure de départ : {{ trajet.HeureDepart|date('h:i:s') }}</h2>
-                                <h2>Heure d'arrivée : {{ trajet.HeureArrivee|date('h:i:s') }}</h2>
-                                {% if trajet.NbPlaces |length > 0 %}
-                                    <h2>Nombre de places disponibles : {{ trajet.NbPlaces }}</h2>
-                                {% elseif trajet.NbPlaces |length == 0  %}
-                                    <h2>Nombre de place disponible : {{trajet.NbPlaces }}</h2>
-                                {% endif %}
-                                <h2>Prix du voyage : {{trajet.Prix }}</h2>
-                                <h2><a class="btn btn-primary btn-lg" href="{{  path('trajet.show', {'slug': trajet.slug}) }}">Détails</a>
-                            </div>
+                                <div class="col-sm-3 col-md-4 col-lg-4">
+                                    <div class="block">
+                                        <div class="block-body">
+                                            <br>
+                                            <p>{% trans %}Departure city{% endtrans %} : {{ trajet.VilleDepart }}</p>
+                                            <p>{% trans %}Arrival city{% endtrans %} : {{ trajet.VilleArrivee }}</p>
+                                            <p>{% trans %}Departure time{% endtrans %} : {{ trajet.HeureDepart|date('h:i:s') }}</p>
+                                            <p>{% trans %}Arrival time{% endtrans %} : {{ trajet.HeureArrivee|date('h:i:s') }}</p>
+                                            {% if trajet.NbPlaces |length > 0 %}
+                                                <p>{% trans %}Available places{% endtrans %} : {{ trajet.NbPlaces }}</p>
+                                            {% elseif trajet.NbPlaces |length == 0  %}
+                                                <p>{% trans %}Available place{% endtrans %} : {{trajet.NbPlaces }}</p>
+                                            {% endif %}
+                                            <p>{% trans %}Travel price{% endtrans %} : {{trajet.Prix }}</p>
+                                            <p><a class="btn btn-primary btn-lg" href="{{  path('trajet.show', {'slug': trajet.slug}) }}">{% trans %}Details{% endtrans %}</a></p>
+                                        </div>
+                                    </div>
+                                </div>
                         {% endfor %}
                     {% endif %}
                 </div>
             </div>
             {% endif %}
-        </div>
 
+        </div>
     </div>
+
+<div class="afficher-route"><br><br>
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Search{% endtrans %}
+    </p>
+</div>
+
+
+
     {% endblock %}

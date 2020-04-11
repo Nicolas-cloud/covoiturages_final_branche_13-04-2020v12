@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard |
+	{{ parent() }}
+{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block body %}
+<style>
+
+.liste_action_profil{
+    float: left;
+    height: 100%;
+    border : 5px solid gray;
+}
+.profile-header-menu{background:#EDEDED;border-right:1px solid #ddd;border-left:1px solid #ddd;border-top:1px solid #ddd;border-top-radius:4px;color:#054752;font-size:13px;font-weight:bold;padding:6px 0 8px 12px}
+
+
+</style>
+<div class="title">{% trans %}Dashboard{% endtrans %}
+
+<div class="liste_action_profil">
+	<ul class="nav nav-tabs nav-stacked profile-menu">
+		<li class="profile-header-menu">Profil</li>
+		<li class="active">
+			<a href="#">Informations personnelles</a>
+		</li>
+		<li>
+			<a href="{{ path('membre_photo') }}">Photo</a>
+		</li>
+		<li>
+			<a href="path ('membre_trajets') }}">Mes trajets</a>
+		</li>
+		<li>
+			<a href="/dashboard/profile/vehicles">Véhicule</a>
+		</li>
+		<li>
+			<a href="/dashboard/profile/address">Adresse postale</a>
+		</li>
+	</ul>
+
+	<ul class="nav nav-tabs nav-stacked profile-menu">
+		<li class="profile-header-menu">Avis</li>
+		<li>
+			<a href="/dashboard/ratings/received">Avis reçus</a>
+		</li>
+		<li>
+			<a href="/dashboard/ratings/given">Avis laissés</a>
+		</li>
+	</ul>
+
+	<ul class="nav nav-tabs nav-stacked account-menu no-margin-bottom">
+		<li class="profile-header-menu">Compte</li>
+		<li>
+			<a href="/dashboard/profile/bank-details/show">Préférences de virement</a>
+		</li>
+		<li>
+			<a href="/dashboard/account/payments-done">Paiements &amp; remboursements</a>
+		</li>
+		<li>
+			<a href="/dashboard/profile/notifications">Notifications &amp; communication</a>
+		</li>
+		<li>
+			<a href="/dashboard/profile/password">Mot de passe</a>
+		</li>
+		<li>
+			<a href="/dashboard/profile/remove">Fermeture de compte</a>
+		</li>
+	</ul>
+</div>
+
+
+
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Profile{% endtrans %}
+	</p>
+</div>
+
+
+
+
+{% endblock %}

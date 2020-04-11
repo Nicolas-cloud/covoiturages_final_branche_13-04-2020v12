@@ -38,9 +38,16 @@ class Reservation
      */
     private $Passager;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $nb_places;
+
     public function __construct(){
     
         $this->date_reservation = new \DateTime();
+        $this->annulation = false;
+        $this->validation = false;
     
     }
 
@@ -93,6 +100,18 @@ class Reservation
     public function setPassager(?Trajet $Passager): self
     {
         $this->Passager = $Passager;
+
+        return $this;
+    }
+
+    public function getNbPlaces(): ?int
+    {
+        return $this->nb_places;
+    }
+
+    public function setNbPlaces(int $nb_places): self
+    {
+        $this->nb_places = $nb_places;
 
         return $this;
     }

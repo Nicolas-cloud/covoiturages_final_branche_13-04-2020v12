@@ -1,46 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouveau trajet | {{ parent() }}{% endblock %}
+{% block title %}{% trans %}New travel{% endtrans %} | {{ parent() }}{% endblock %}
 
 {% block body %}
     <style>
         .row{
             margin-left: 25%;
         }
-
     </style>
 
-    <h1>Proposer un nouveau trajet</h1>
-    <div class="media" style="margin-top: 60px;">
+    <div class="title">{% trans %}Create a travel{% endtrans %}</div>
+    <div class="media" style="margin-top: 20px;">
 
         {{ form_start(form) }}
 
-        {{ form_start(form) }}
         <div class="row">
-            <div class="col-md-4">{{ form_row(form.ville_depart) }}</div>
-            <div class="col-md-4">{{ form_row(form.ville_arrivee) }}</div>
+            <div class="col-md-4">{{ form_row(form.ville_depart, {'label': 'Ville de départ', 'attr': {'placeholder': 'Ville de départ ...'}}) }}</div>
+            <div class="col-md-4">{{ form_row(form.ville_arrivee, {'label': 'Ville d\'arrivée', 'attr': {'placeholder': 'Ville d\'arrivée ...'}}) }}</div>
         </div>
         <div class="row">
-            <div class="col-md-4">{{ form_row(form.heure_depart) }}</div>
-            <div class="col-md-4">{{ form_row(form.heure_arrivee) }}</div>
+            <div class="col-md-4">{{ form_row(form.heure_depart, {'label': 'Heure de départ', 'attr': {'placeholder': 'Heure de départ ...'}}) }}</div>
+            <div class="col-md-4">{{ form_row(form.heure_arrivee, {'label': 'Heure d\'arrivée', 'attr': {'placeholder': 'Heure d\'arrivée ...'}}) }}</div>
         </div>
         <div class="row">
             <div class="col-md-4">{{ form_row(form.nb_places) }}</div>
             <div class="col-md-4">{{ form_row(form.prix) }}</div>
         </div>
         <div class="row">
-            <div class="col-md-4">{{ form_row(form.description) }}</div>
+            <div class="col-md-4">{{ form_row(form.description, {'label': 'Description', 'attr': {'placeholder': 'Inscrivez des informations ...'}}) }}</div>
         </div>
         <div class="row">
             <div class="col-md-4">{{ form_row(form.date_expiration) }}</div>
         </div>
         <div class="row">
             <div class="form-group" style="margin-left:2%;">
-                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                <button type="submit" class="btn btn-primary">{% trans %}Save{% endtrans %}</button>
             </div>
         </div>
         {{ form_widget(form) }}
+        {{ form_end(form) }}
     </div>
+
+<div class="afficher-route">
+    <p>({% trans %}English{% endtrans %}) {% trans %}Carpooling{% endtrans %} → {% trans %}Travels{% endtrans %} → {% trans %}Create{% endtrans %}</p>
+</div>
 
 
     {{ form_end(form) }}

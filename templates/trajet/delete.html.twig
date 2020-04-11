@@ -4,6 +4,7 @@
 
 {% block body %}
 
+    <div class="title">{% trans %}Delete a travel{% endtrans %}</div>
     <div class="alert alert-danger">
         <strong>Avertissement !</strong> Vous êtes en train de supprimer le trajet suivant :
         <ul>
@@ -24,4 +25,11 @@
     </button>
     {{ form_end(form) }}
     </div>
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %}){% trans %}Carpooling{% endtrans %}→{% trans %}Travels{% endtrans %}→{% trans %}Delete{% endtrans %}</p>
+</div>
+
+
+
 {% endblock %}

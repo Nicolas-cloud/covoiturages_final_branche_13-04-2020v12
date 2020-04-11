@@ -11,6 +11,7 @@ use App\Entity\Reservation;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Entity\Trajet;
 
 class ReservationController extends AbstractController
 {
@@ -32,22 +33,28 @@ class ReservationController extends AbstractController
      * @param EntityManagerInterface $em
      * @return RedirectResponse|Response
      */
-    public function reservation(Request $request, Reservation $reservation, EntityManagerInterface $em): Response
+    public function reservation(Request $request, Trajet $trajet, EntityManagerInterface $em): Response
     {
-
         $reservation= new Reservation();
-        //$reservation->setPassager();
 
         $form = $this->createForm(ReservationType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {
-            $em = $this->getDoctrine()->getManager();
-            $manager->persist($reservation);
-            $manager->flush();
+            $em->persist($reservation);
+            $trajet->addReservation($reservation);
+            $reservation->setPassager($trajet);
+            $place_dispo = $trajet->getNbPlaces();
+            $place_reserv = $reservation->getNbPlaces();
+            $trajet->setNbPlaces($place_dispo - $place_reserv);
+            $em->flush();
             return $this->redirectToRoute('/');
         }           
-        return $this->render('reservation/reservation.html.twig', array('formReservation' => $form->createView(),));
+        return $this->render('reservation/create.html.twig', array(
+            'form' => $form->createView(),
+            'reservation'=> $reservation,
+            'trajet' => $trajet,
+        ));
     
     }
 

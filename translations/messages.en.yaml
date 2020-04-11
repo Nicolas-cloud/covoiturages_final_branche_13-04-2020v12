@@ -1,7 +1,7 @@
 Home: Home
-'Available routes': 'Available routes'
+'Available routes': 'Available travels'
 Search: Search
-'Suggest a route': 'Suggest a route'
+'Suggest a route': 'Propose a travel'
 'Contact us': 'Contact us'
 'Private space': 'Private space'
 'Sign out': 'Sign out'
@@ -19,7 +19,7 @@ Submit: Submit
 Logout: Logout
 Cancel: Cancel
 Delete: Delete
-'Lasts routes created': 'Lasts routes created'
+'Lasts routes created': 'Lasts travels created'
 'places availables': 'places availables'
 'Show informations': 'Show informations'
 'Book a place': 'Book a place'
@@ -37,3 +37,62 @@ Edit: Edit
 'Departure time': 'Departure time'
 'Departure arrival': 'Departure arrival'
 'Log in!': 'Log in!'
+'Chat Moderators': 'Chat Moderators'
+'Web Design': 'Web Design'
+'Delete user': 'Delete user'
+Carefull: Carefull
+'You are going to delete this user': 'You are going to delete this user'
+Lastname: Lastname
+Pseudo: Pseudo
+'Are you sure': 'Are you sure'
+'Update a user': 'Update a user'
+'Users list': 'Users list'
+Modify: Modify
+'Search a route': 'Search a route'
+'There is no result wich match your search': 'There is no result wich match your search'
+'Departure city': 'Departure city'
+'Arrival city': 'Arrival city'
+'Arrival time': 'Arrival time'
+'Available places': 'Available places'
+'Available place': 'Available place'
+'Travel price': 'Travel price'
+Details: Details
+'Delete a user': 'Delete a user'
+'Modify a user': 'Modify a user'
+'Became a member': 'Became a member'
+'Advanced search': 'Advanced search'
+'Delete a travel': 'Delete a travel'
+Save: Save
+'Travel details': 'Details : Travel'
+'New travel': 'New travel'
+'Propose a travel': 'Propose a travel'
+'Modify a travel': 'Modify a travel'
+'Update informations of your travel': 'Update informations of your travel'
+'Conductor informations': 'Conductor informations'
+Profile: Profile
+'Change language': 'Change language'
+'Envoyez votre message, un technicien répondra au plus vite': 'Enter your message, a technician will answer you soon'
+'Pour parler à nos agents, veuillez vous connecter ou envoyez-nous un e-mail à blablacar@bcar.fr': '__Pour parler à nos agents, veuillez vous connecter ou envoyez-nous un e-mail à blablacar@bcar.fr'
+Memorize: Memorize
+'Plus besoin d''aller en ville pour quitter la ville : nous mettons en relation passagers et conducteurs prêts à partager leur trajet en voiture pour leur permettre d''aller partout, et sans changement.': 'Not necessary to go your city to quite it : we put passengers and drivers ready to share their car trip to allow them to go everywhere, and without change.'
+Photo: Photo
+Dashboard: Dashboard
+Reservation: Reservation
+'Travels corresponding': 'Travels corresponding'
+'Already connected': 'Already connected'
+'No required permissions': 'No required permissions'
+'To go back click, on the next button': 'To go back click, on the next button'
+back: _back
+'you can click': 'you can click'
+here: here
+'to logout.': 'to logout.'
+'Create a travel': 'Create a travel'
+English: English
+Carpooling: Carpooling
+Travels: Travels
+Create: Create
+'Admin commands': 'Admin commands'
+'Edit user': 'Edit user'
+'Creation succes': 'Creation succes'
+'Log in': 'Log in'
+List: List

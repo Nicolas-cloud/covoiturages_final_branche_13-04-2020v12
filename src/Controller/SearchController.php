@@ -24,16 +24,9 @@ class SearchController extends AbstractController
     {
         $trajets=[];
         $SearchTrajetForm = $this->createForm(SearchTrajetType::class);
-        
-        /*
-        $formBuilder = $this->createFormBuilder(SearchTrajetType::class);
-        $SearchTrajetForm = $formBuilder->getForm();
-        // $SearchTrajetForm->handleRequest($request);
-        */
 
         if ($SearchTrajetForm->handleRequest($request)->isSubmitted() && $SearchTrajetForm->isValid()) {
             $criteria = $SearchTrajetForm->getData();
-            dd($criteria);
             $trajets = $trajetRepository->searchTrajet($criteria);
         }
 

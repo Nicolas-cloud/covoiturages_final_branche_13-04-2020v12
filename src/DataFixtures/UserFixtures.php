@@ -21,8 +21,8 @@ class UserFixtures extends Fixture
     {
         $user = new User();
         $user->setEmail("user@user.fr")
-            ->setPassword($this->passwordEncoder->encodePassword($user, 'user'))
-            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'user'))
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
             ->setNom("DENIS")
             ->setPrenom("Jean")
             ->setPseudo("Jeeaann")
@@ -32,8 +32,8 @@ class UserFixtures extends Fixture
 
         $admin = new User();
         $admin->setEmail("admin@admin.fr")
-        ->setPassword($this->passwordEncoder->encodePassword($user, 'admin'))
-        ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'admin'))
+        ->setPassword($this->passwordEncoder->encodePassword($user, 'adminadmin'))
+        ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'adminadmin'))
         ->setRoles(['ROLE_ADMIN'])
         ->setNom("SACHOT")
         ->setPrenom("Pierre")

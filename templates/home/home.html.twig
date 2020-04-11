@@ -66,11 +66,21 @@
                     <h4 class="header2">Vous pouvez partagez vos trajets à plusieurs !</h4>
                 </div>
                 <div class="body">
-                    <p><a href="{{ path('search.trajet') }}" <button type="button" class="btn btn-default btn-lg">Rechercher un trajet</a></p>
+                    <p><a href="{{ path('search.trajet') }}" <button type="button" class="btn btn-default btn-lg">{{'Search a route'|trans}}</a></p>
                 </div>
             </div>
         </div>
     </div>
+
+<div class="afficher-route"><br><br>
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Home{% endtrans %}
+    </p>
+</div>
+
+
 
 {% endblock %}
 

@@ -2,33 +2,99 @@
 'Arrival city': 'Ville d''arrivée'
 'Departure time': 'Heure de départ'
 'Departure arrival': 'Heure d''arrivée'
-Creation date: Date de création
+'Creation date': 'Date de création'
 Home: Accueil
 Search: Rechercher
-Suggest a route: Proposer un trajet
-Contact us: Contactez-nous
-Available routes: Trajets disponibles
-Private space: Espace privé
-Sign out: Se déconnecter
+'Suggest a route': 'Proposer un trajet'
+'Contact us': Contactez-nous
+'Available routes': 'Trajets disponibles'
+'Private space': 'Espace privé'
+'Sign out': 'Se déconnecter'
 Registration: Inscription
-Sign in: Se connecter
+'Sign in': 'Se connecter'
 Administration: Administration
-Contact us !: Contactez-nous !
-Password: Mot de passe
-Remember me: Se souvenir
+'Contact us !': 'Contactez-nous !'
+Password: 'Mot de passe'
+'Remember me': 'Se souvenir'
 Submit: Envoyer
-Logout: Se déconnecter
+Logout: 'Se déconnecter'
 Cancel: Annuler
 Delete: Supprimer
-Lasts routes created: Derniers trajets créés
-places availables: places disponibles
-Show informations: Voir les détails
-Book a place: Réserver une place
-Moderate users: Modérer utilisateurs
+'Lasts routes created': 'Derniers trajets créés'
+'places availables': 'places disponibles'
+'Show informations': 'Voir les détails'
+'Book a place': 'Réserver une place'
+'Moderate users': 'Modérer utilisateurs'
 Parameters: Paramètres
-Create your account: Créér votre compte
-Expire on: Expire le
-Edit: Éditer
-Published on: Publié le
-List of routes: Liste des trajets
-Please sign in: Authentifiez-vous
+'Create your account': 'Créér votre compte'
+'Expire on': 'Expire le'
+Edit: Modifier
+'Published on': 'Publié le'
+'List of routes': 'Liste des trajets'
+'Please sign in': Authentifiez-vous
+'Add a user': 'Ajouter un utilisateur'
+'Chat Moderators': 'Chat modérateurs'
+'Web Design': 'Design du site'
+'Delete user': 'Supprimer un utilisateur'
+Carefull: Attention
+'You are going to delete this user': 'Vous allez supprimer l''utilisateur suivant'
+Lastname: Nom
+Pseudo: Pseudo
+'Are you sure': 'Etes-vous sûr'
+'Update a user': 'Modifier un utilisateur'
+Modify: Modifier
+'Search a route': 'Chercher une destination'
+'Congratulations ! Your account has been well created': 'Félicitations ! Votre compte a bien été créé'
+'There is no result wich match your search': 'Il n''y a aucun trajet qui correspond à votre recherche'
+'Arrival time': 'Heure d''arrivée'
+'Available places': 'Nombre de places disponibles'
+'Available place': 'Nombre de place disponible'
+'Travel price': 'Prix du trajet'
+Details: Détails
+'Log in!': 'Se connecter!'
+'You are logged in as': 'Vous êtes connecté en tant que'
+'Departure city :': 'Ville de départ :'
+'Arrival city :': 'Ville d''arrivée :'
+'Departure time :': 'Heure de départ :'
+'Departure arrival :': 'Heure d''arrivéé :'
+'Creation date :': 'Date de création :'
+'Delete a user': 'Supprimer un utilisateur'
+'Modify a user': 'Modifier un utilisateur'
+'Users list': 'Liste des utilisateurs'
+'Became a member': 'Devenir membre'
+'Advanced search': 'Recherche avancée'
+'New travel': 'Nouveau trajet'
+'Propose a travel': 'Proposer un trajet'
+Save: Enregistrer
+'Delete a travel': 'Supprimer un trajet'
+'Modify a travel': 'Modifier un trajet'
+'Update informations of your travel': 'Modifier les informations de votre trajet'
+'Travel details': 'Détails du trajet'
+'Conductor informations': 'Informations du covoitureur'
+Profile: Profil
+'Change language': 'Changer de langage'
+'Envoyez votre message, un technicien répondra au plus vite': 'Envoyez votre message, un technicien répondra au plus vite'
+'Pour parler à nos agents, veuillez vous connecter ou envoyez-nous un e-mail à blablacar@bcar.fr': 'Pour parler à nos agents, veuillez vous connecter ou envoyez-nous un e-mail à blablacar@bcar.fr'
+Memorize: Mémoriser
+Photo: Photo
+Dashboard: 'Tableau de bord'
+Reservation: Réservation
+'Travels corresponding': 'Trajets correspondant'
+'Already connected': 'Déjà connecté(e)'
+'No required permissions': 'Vous n''avez pas les permissions requises'
+'To go back click, on the next button': 'Pour revenir sur la page précédente, cliquer sur le bouton suivant'
+back: retour
+'you can click': 'vous pouvez cliquer'
+here: ici
+'to logout.': 'pour se déconnecter.'
+'Create a travel': 'Créér un trajet'
+'Plus besoin d''aller en ville pour quitter la ville : nous mettons en relation passagers et conducteurs prêts à partager leur trajet en voiture pour leur permettre d''aller partout, et sans changement.': '__Plus besoin d''aller en ville pour quitter la ville : nous mettons en relation passagers et conducteurs prêts à partager leur trajet en voiture pour leur permettre d''aller partout, et sans changement.'
+English: Anglais
+Carpooling: Covoiturages
+Travels: Trajets
+Create: Créér
+'Admin commands': 'Commandes administration'
+'Edit user': 'Modifier utilisateur'
+'Creation succes': 'Compte créé'
+'Log in': 'Authentification'
+List: Liste

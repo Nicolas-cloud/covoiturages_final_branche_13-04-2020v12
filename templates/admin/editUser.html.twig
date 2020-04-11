@@ -3,6 +3,18 @@
 {% block title %}Modifier utilisateur | {{ parent() }}{% endblock %}
 
 {% block body %}
-    <h1>Modifier l'utilisateur</h1>
+    <div class="title">{% trans %}Modify a user{% endtrans %}</div>
     {{ form(userForm) }}
+    
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Administration{% endtrans %}
+		→
+		{% trans %}Edit user{% endtrans %}</p>
+</div>
+
+
+
 {% endblock %}

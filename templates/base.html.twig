@@ -1,6 +1,12 @@
+{#
+{% block b1 %}
+    {% include 'serviceClient.html.twig' %}
+{% endblock %}
+#}
 <!DOCTYPE html>
 <html>
-    <title>{% block title %}Besoin d'un covoiturage ?{% endblock %}</title>
+
+    <title>{% block title %}Covoiturages{% endblock %}</title>
 
     <head>
 
@@ -9,29 +15,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         
         <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-        
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/serviceclient.min.css') }}">
+
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.0.js"></script>
         
 
     </head>
-
-
-    {% block javascript %}
-        
-        <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-        
-        <script type="text/javascript">
-
-        $(document).ready(function(){           
-            $('#fixed-form-container .body').hide();
-            $('#fixed-form-container .button').click(function () {
-                    $(this).next('#fixed-form-container div').slideToggle(400);
-                    $(this).toggleClass("expanded");
-            });
-        });
-        </script>
-        
-    {% endblock %}
 
 <body>  
     <nav class="navbar navbar-default">
@@ -43,7 +33,7 @@
                     <li><a href="{{ path('search.trajet') }}" class="lien_left"><i class="fa fa-search" style='font-size:15px; margin-right:5px;'></i>{% trans %}Search{% endtrans %}</a></li> 
                     <li><a href="{{ path('trajet.create') }}" class="lien_left"><i class="fa fa-plus" style='font-size:15px; margin-right:5px;'></i>{% trans %}Suggest a route{% endtrans %}</a></li>
                     {% if is_granted('ROLE_USER') %}
-                        <li><a href="#" class="lien_left"><i class="fa fa-user" style='font-size:15px; margin-right:5px;'></i>{% trans %}Private space{% endtrans %}</a></li>
+                        <li><a href="{{ path('membre_profil') }}" class="lien_left"><i class="fa fa-user" style='font-size:15px; margin-right:5px;'></i>{% trans %}Profile{% endtrans %}</a></li>
                     {% endif %}
                     {% if is_granted('ROLE_USER') %}
                         <li><a href="{{ path('app_logout') }}" class="lien_right">{% trans %}Sign out{% endtrans %}</a></li>
@@ -59,7 +49,7 @@
                     {% endif %}
                     {% for key, locale in locales if key != app.request.locale %}
                         <li class="nav item activ">
-                            <a class="lien_right" href="{{ path(app.request.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': key})) }}"><img src="{{ asset('img/'~key~'.png') }}" alt="{{locale}}" style="height:24px;">  </a>
+                            <a class="lien_right" title="{% trans %}Change language{% endtrans %}" href="{{ path(app.request.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': key})) }}"><img src="{{ asset('img/'~key~'.png') }}" alt="{{locale}}" style="height:24px;">  </a>
                         </li>
                     {% endfor %}
                 </div>
@@ -68,37 +58,44 @@
     </nav>
 
     <section id="fixed-form-container">
-        <div class="button"><i class='far fa-comment' style='font-size:15px; margin-right:5px;'></i> {% trans %}Contact us{% endtrans %} !</div>
-            <div class="body">
-                <h3>Bienvenue au service client de Blabla Car</h3>
-                <div class="form-group">
-                    {% if is_granted('ROLE_USER') %}
-                        <p>Service disponible entre 9h-12h et 13h/18h, tous les jours sauf le dimanche</p>
-                        <p><label for="pwd">Envoyez votre message, un technicien répondra au plus vite</label></p>
-                        <form name="message" action="">
-                            <input name="usermsg" type="text" id="usermsg" style="overflow: scroll;" size="40" />
-                            <input name="submitmsg" type="submit"  id="submitmsg" value="Envoyez" />
-                        </form>
-                    {% else %}
-                        <p>Pour parler à nos agents, veuillez vous connecter ou envoyez-nous un e-mail à blablacar@bcar.fr</p>
-                        <label for="pwd">E-mail:</label>
-                        <input type="email" class="form-control" id="email">
-                        <label for="pwd">{% trans %}Password{% endtrans %}:</label>
-                        <input type="password" class="form-control" id="pwd">
-                        <div class="checkbox">
-                            <label><input type="checkbox">{% trans %} Remember me {% endtrans %}</label>
-                        </div>
-                        <button type="submit" class="btn btn-default">{% trans %}Submit{% endtrans %}</button>
-                        </div>
-                    {% endif %}
+        <div class="button">
+            <i class='far fa-comment' style='font-size:15px; margin-right:5px;'></i>
+            {% trans %}Contact us{% endtrans %}
+            !</div>
+        <div class="body">
+            <h3>Bienvenue au service client de Blabla Car</h3>
+            <div class="form-group">
+                {% if is_granted('ROLE_USER') %}
+                    <p>Service disponible entre 9h-12h et 13h/18h, tous les jours sauf le dimanche</p>
+                    <p>
+                        <label for="pwd">{% trans %}Envoyez votre message, un technicien répondra au plus vite{% endtrans %}</label>
+                    </p>
+                    <form name="message" action="">
+                        <input name="usermsg" type="text" id="usermsg" style="overflow: scroll;" size="40"/>
+                        <input name="submitmsg" type="submit" id="submitmsg" value="Envoyez"/>
+                    </form>
+                {% else %}
+                    <p>{% trans %}Pour parler à nos agents, veuillez vous connecter ou envoyez-nous un e-mail à blablacar@bcar.fr{% endtrans %}</p>
+                    <label for="inputEmail">Email</label>
+                    <input type="email" value="" name="email" id="inputEmail" class="form-control" required autofocus>
+                    <label for="inputPassword">{% trans %}Password{% endtrans %}</label>
+                    <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <div class="checkbox">
+                        <label><input type="checkbox">{% trans %}Memorize{% endtrans %}</label>
+                    </div>
+                    <button type="submit" class="btn btn-default">{% trans %}Submit{% endtrans %}</button>
                 </div>
-            </div>
+            {% endif %}
         </div>
     </section>
 
+
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+      <br><br>
+        <p class="text-muted">{% trans %}Plus besoin d'aller en ville pour quitter la ville : nous mettons en relation passagers et conducteurs prêts à partager leur trajet en voiture pour leur permettre d'aller partout, et sans changement.{% endtrans %}</p>
       </div>
     </footer>
     
@@ -114,5 +111,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+
 
 </html>

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{% trans %}Photo{% endtrans %}| {{ parent() }}{% endblock %}
+
+{% block body %}
+
+    <div class="title">Photo</div>
+
+    <p class="intro">LES PLUS BELLES PHOTOS DU MONDE</p>
+
+
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Profile{% endtrans %}
+		→
+		{% trans %}Photo{% endtrans %}</p>
+</div>
+
+
+
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Détails trajet | {{ parent() }}{% endblock %}
+{% block title %}{% trans %}Travel details{% endtrans %} | {{ parent() }}{% endblock %}
 
 
 
@@ -9,23 +9,26 @@
 
     </style>
 
-    <h1>Détails du Trajet <i>{{ trajet.VilleDepart }} - {{ trajet.VilleArrivee }}</i></h1>
-    <div class="media" style="margin-top: 45px;">
+    <div class="title">{% trans %}Travel details{% endtrans %}</div>
+    <div class="media" style="margin-top: 30px; margin-right:-150px;">
         <div class="media-body">
             <div class="row">
                 <div class="col-sm-10">
-                    <h3 class="media-heading"><strong>{{ trajet.VilleDepart }} - {{ trajet.VilleArrivee }}</strong></h3>
+                    <h3 class="media-heading"><strong><i>{{ trajet.VilleDepart }} - {{ trajet.VilleArrivee }}</i></strong></h3>
                 </div>
                 <div class="col-sm-10">
                     <p class="text">Nombre de places disponibles {{ trajet.NbPlaces }}</i></p>
                 </div>
                 <div class="col-sm-10">
-                    <p class="text">Prix du trajet {{ trajet.Prix }}.00 €</i></p>
+                    <p class="text">{% trans %}Travel price{% endtrans %} {{ trajet.Prix }}.00 €</i></p>
                 </div>
             </div>
             <div class="col-sm-10">
-                <p class="text-default"><strong>Informations du covoitureur : </strong></p>
+                <p class="text-default"><strong>{% trans %}Conductor informations{% endtrans %} : </strong></p>
                 <p>{{ trajet.description|nl2br }}</p><br>
+            </div>
+            <div class="col-sm-10">
+                <p class="text-info" style="color:black;">{% trans %}Expire on{% endtrans %} {{ trajet.DateExpiration|date('d/m/Y') }}</p>
             </div>
             <div class="col-sm-12">
                 <i class="pull-right">{% trans %}Published on{% endtrans %} {{ trajet.getDateCreation()|date('m/d/Y') }}</i>
@@ -47,4 +50,16 @@
             </div>  
         </div>
     </div>
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Travels{% endtrans %}
+		→
+		{% trans %}Details{% endtrans %}</p>
+</div>
+
+
+
 {% endblock %}

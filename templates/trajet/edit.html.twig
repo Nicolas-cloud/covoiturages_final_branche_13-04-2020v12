@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier trajet | {{ parent() }}{% endblock %}
+{% block title %}{% trans %}Modify a travel{% endtrans %} | {{ parent() }}{% endblock %}
 
 {% block body %}
 
-    <h1>Modifier les informations de votre trajet</h1><br>
+    <div class="title">{% trans %}Update informations of your travel{% endtrans %}</div><br>
 
     <div>
         {{ form_start(form) }}
@@ -32,8 +32,20 @@
     {{ form_widget(form) }}
 
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">{% trans %}Save{% endtrans %}</button>
     </div>
 
     {{ form_end(form) }}
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Travels{% endtrans %}
+		→
+		{% trans %}Edit{% endtrans %}</p>
+</div>
+
+
+
 {% endblock %}

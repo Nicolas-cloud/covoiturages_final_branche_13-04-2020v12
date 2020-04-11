@@ -23,27 +23,38 @@
 
     </style>
 
-    <h1>Administration</h1><br><br>
+    <div class="title">Administration</div><br><br>
     <table class="table table-striped">
         <thead class="thead-dark">
 
         </thead>
-        <tbody> 
+        <tbody class="administration_command"> 
             <tr>
-                <th class="table-dark"><br><a href="#">{% trans %}Add a user{% endtrans %}</a></th>
+                <th class="command_admin_impair"><br><a href="#">{% trans %}Add a user{% endtrans %}</a></th>
             </tr>
             <tr>
-                <th><br><a href="{{ path('admin_utilisateurs') }}">{% trans %}Moderate users{% endtrans %}</a></th>
+                <th class="command_admin_pair"><br><a href="{{ path('admin_utilisateurs') }}">{% trans %}Moderate users{% endtrans %}</a></th>
             </tr>
             <tr>
-                <th><br><a href="#">{% trans %}Parameters{% endtrans %}</a></th>
+                <th class="command_admin_impair"><br><a href="#">{% trans %}Parameters{% endtrans %}</a></th>
             </tr>
             <tr>
-                <th><br><a href="#">Chat modérateurs</a></th>
+                <th class="command_admin_pair"><br><a href="#">{% trans %}Chat Moderators{% endtrans %}</a></th>
             </tr>
             <tr>
-                <th><br><a href="#">Web Design</a></th>
+                <th class="command_admin_impair"><br><a href="#">{% trans %}Web Design{% endtrans %}</a></th>
             </tr>
         </tbody>
     </table>
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Administration{% endtrans %}
+		→
+		{% trans %}Admin commands{% endtrans %}</p>
+</div>
+
+
 {% endblock %}

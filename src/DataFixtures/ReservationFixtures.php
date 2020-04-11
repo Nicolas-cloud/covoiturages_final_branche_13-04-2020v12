@@ -18,7 +18,8 @@ class ReservationFixtures extends Fixture
         $reservation1 = new Reservation();
         $reservation1->setDateReservation(new \DateTime('02-04-2020'))
             ->setValidation(true)
-            ->setAnnulation(false);
+            ->setAnnulation(false)
+            ->setNbPlaces(2);
         $manager->persist($reservation1);
 
 

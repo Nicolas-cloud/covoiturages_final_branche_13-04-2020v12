@@ -96,4 +96,3 @@ class AdminController extends AbstractController
 
 
 
-// php bin/console translation:update --force fr

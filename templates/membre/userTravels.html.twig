@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Travels | {{ parent() }}{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block body %}
+<style>
+
+    .liste_action_profil{
+        float: left;
+        height: 100%;
+        border : 5px solid gray;
+    }
+</style>
+
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Profile{% endtrans %}
+		→
+		{% trans %}My travels{% endtrans %}</p>
+</div>
+
+
+
+
+{%  endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Compte crée | {{ parent() }}{% endblock %}
+{% block title %}Compte créé | {{ parent() }}{% endblock %}
 
 {% block head %}
 {% endblock %}
@@ -16,12 +16,22 @@
         <h1>{% trans %}Congratulations ! Your account has been well created{% endtrans %}</h1>
     </div>
     <div>
-        <h3>Votre compte a bien été crée.</h3>
-        <a href="{{ path('app_login') }}" <button type="button" class="btn btn-primary">Cliquez ici pour vous authentifier</a> 
+        <h3>Votre compte a bien été créé.</h3>
+        <a href="{{ path('app_login') }}" <button type="button" class="btn btn-primary">Cliquez ici pour vous authentifiez</a> 
     </div>
     {#
     <div>
     You are logged in as <a href="{{ path('app_logout') }}">{% trans %}Logout{% endtrans %}</a>
     </div>
     #}
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Creation succes{% endtrans %}
+    </p>
+</div>
+
+
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste utilisateurs | {{ parent() }}{% endblock %}
+{% block title %}{% trans %}Users list{% endtrans %}| {{ parent() }}{% endblock %}
 
     {% block head %}
         {% block stylesheets %}
@@ -20,44 +20,57 @@
 
     </style>
 
-    <h1>Liste des utilisateurs</h1>
-    <table class="table">
-        <thead>
-            <th>ID</th>
-            <th>Email</th>
-            <th>Rôles</th>
-            <th>Actions</th>
-        </thead>
-        <tbody>
-            {% for user in users %}
-                <tr>
-                    <td>{{ user.id }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>
-                        {% for role in user.roles %}
-                            {% if role == "ROLE_ADMIN" %} 
-                                Administrateur
-                            {% elseif role == "ROLE_USER" %}
-                                Utilisateur
-                            {% elseif role == "ROLE_EDITOR" %}
-                                Éditeur 
-                            {% elseif role == "ROLE_MODO" %}
-                                Modérateur 
-                            {% endif %}
-                        {% endfor %}
-                    </td>
-                    <td>
-                        <a href="{{ path('admin_modifier_utilisateur', {'id': user.id}) }}"
-                        class="btn-warning">{% trans %}Modify{% endtrans %}</a>
-                        <a href="{{ path('admin_delete', {'id': user.id}) }}"
-                        class="btn-danger">{% trans %}Delete{% endtrans %}</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan=5>Il n'y a pas d'utilisateur inscrit</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="title">Liste des utilisateurs</div>
+    <div class="media" style="margin-top: 20px;">
+        <table class="table">
+            <thead>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Rôles</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {% for role in user.roles %}
+                                {% if role == "ROLE_ADMIN" %} 
+                                    Administrateur
+                                {% elseif role == "ROLE_USER" %}
+                                    Utilisateur
+                                {% elseif role == "ROLE_EDITOR" %}
+                                    Éditeur 
+                                {% elseif role == "ROLE_MODO" %}
+                                    Modérateur 
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a href="{{ path('admin_modifier_utilisateur', {'id': user.id}) }}"
+                            class="btn-warning">{% trans %}Modify{% endtrans %}</a>
+                            <a href="{{ path('admin_delete', {'id': user.id}) }}"
+                            class="btn-danger">{% trans %}Delete{% endtrans %}</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan=5>Il n'y a pas d'utilisateur inscrit</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Administration{% endtrans %}
+		→
+		{% trans %}List of users{% endtrans %}</p>
+</div>
+
+
 {% endblock %}

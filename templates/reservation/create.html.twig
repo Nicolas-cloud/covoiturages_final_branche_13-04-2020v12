@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche de trajet | {{ parent() }}{% endblock %}
+
+{% block body %}
+
+<style>
+    .row{
+        margin-left: 25%;
+    }
+</style>
+
+<div class="title">{% trans %}Reservation{% endtrans %}</div><br>
+<div class="container">
+
+	<div class="section">
+		<div class="col m6 offset-m3">
+			{{ form_start(form) }}
+			{{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+
+<div class="afficher-route">
+	<p>({% trans %}English{% endtrans %})
+		{% trans %}Carpooling{% endtrans %}
+		→
+		{% trans %}Travels{% endtrans %}
+		→
+		{% trans %}Reservation{% endtrans %}</p>
+</div>
+
+
+
+{% endblock body %}
+ 

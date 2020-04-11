@@ -21,7 +21,7 @@ class HomeController extends AbstractController
     /**
      * afficher la page d'accueil
      * 
-     * @Route("{_locale}/accueil", name ="home")
+     * @Route("/accueil", name ="home")
      */
     public function accueil() {
 

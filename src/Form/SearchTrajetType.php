@@ -36,8 +36,14 @@ class SearchTrajetType extends AbstractType
                 'label' => 'À partir de quel jour ?', 
             ])
             ->add('heure_depart', TimeType::class, [
-                'label' => 'À partir de quelle heure ?',
+                'label' => 'Heure de départ',
+                'constraints' => [new NotBlank(),
+                ]
             ])
+            /*
+            /*->add('heure_arrivee', TimeType::class, [
+                'label' => 'À partir de quelle heure ?',
+            ])*/
             ->add('nb_places', IntegerType::class, [
                 'label' => 'Nombre de places minimum',
             ])
@@ -45,7 +51,6 @@ class SearchTrajetType extends AbstractType
                 'label' =>  'Prix maximum',
                 'choices' => array_combine(self::PRICE, self::PRICE),
             ])
-            ->add('recherche', SubmitType::class)
         ;
     }
 

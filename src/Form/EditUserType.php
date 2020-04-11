@@ -37,7 +37,7 @@ class EditUserType extends AbstractType
                 ],
                 'expanded' => true,
                 'multiple' => true,
-                'label' => 'Rôle'
+                'label' => 'Rôle(s)'
             ])
             ->add('Valider', SubmitType::class)
         ;
