@@ -20,7 +20,107 @@ class UserFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $user = new User();
-        $user->setEmail("user@user.fr")
+        $user->setEmail("user1@user.fr")
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setNom("DENIS")
+            ->setPrenom("Jean")
+            ->setPseudo("Jeeaann")
+            ->setSexe("Homme")
+            ->setAnneeNaissance(new \DateTime(1997-01-01));
+        $manager->persist($user);
+
+
+        $user = new User();
+        $user->setEmail("user2@user.fr")
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setNom("DENIS")
+            ->setPrenom("Jean")
+            ->setPseudo("Jeeaann")
+            ->setSexe("Homme")
+            ->setAnneeNaissance(new \DateTime(1997-01-01));
+        $manager->persist($user);
+
+                $user = new User();
+        $user->setEmail("user3@user.fr")
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setNom("DENIS")
+            ->setPrenom("Jean")
+            ->setPseudo("Jeeaann")
+            ->setSexe("Homme")
+            ->setAnneeNaissance(new \DateTime(1997-01-01));
+        $manager->persist($user);
+
+                $user = new User();
+        $user->setEmail("user4@user.fr")
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setNom("DENIS")
+            ->setPrenom("Jean")
+            ->setPseudo("Jeeaann")
+            ->setSexe("Homme")
+            ->setAnneeNaissance(new \DateTime(1997-01-01));
+        $manager->persist($user);
+
+                $user = new User();
+        $user->setEmail("user5@user.fr")
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setNom("DENIS")
+            ->setPrenom("Jean")
+            ->setPseudo("Jeeaann")
+            ->setSexe("Homme")
+            ->setAnneeNaissance(new \DateTime(1997-01-01));
+        $manager->persist($user);
+
+                        $user = new User();
+        $user->setEmail("user6@user.fr")
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setNom("DENIS")
+            ->setPrenom("Jean")
+            ->setPseudo("Jeeaann")
+            ->setSexe("Homme")
+            ->setAnneeNaissance(new \DateTime(1997-01-01));
+        $manager->persist($user);
+
+                        $user = new User();
+        $user->setEmail("user7@user.fr")
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setNom("DENIS")
+            ->setPrenom("Jean")
+            ->setPseudo("Jeeaann")
+            ->setSexe("Homme")
+            ->setAnneeNaissance(new \DateTime(1997-01-01));
+        $manager->persist($user);
+
+                        $user = new User();
+        $user->setEmail("user8@user.fr")
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setNom("DENIS")
+            ->setPrenom("Jean")
+            ->setPseudo("Jeeaann")
+            ->setSexe("Homme")
+            ->setAnneeNaissance(new \DateTime(1997-01-01));
+        $manager->persist($user);
+
+                        $user = new User();
+        $user->setEmail("user9@user.fr")
+            ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
+            ->setNom("DENIS")
+            ->setPrenom("Jean")
+            ->setPseudo("Jeeaann")
+            ->setSexe("Homme")
+            ->setAnneeNaissance(new \DateTime(1997-01-01));
+        $manager->persist($user);
+
+                        $user = new User();
+        $user->setEmail("user10@user.fr")
             ->setPassword($this->passwordEncoder->encodePassword($user, 'useruser'))
             ->setPasswordConfirm($this->passwordEncoder->encodePassword($user, 'useruser'))
             ->setNom("DENIS")

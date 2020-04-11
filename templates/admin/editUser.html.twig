@@ -3,7 +3,10 @@
 {% block title %}Modifier utilisateur | {{ parent() }}{% endblock %}
 
 {% block body %}
-    <div class="title">{% trans %}Modify a user{% endtrans %}</div>
+<div class="title">{% trans %}Modify a user{% endtrans %}</div>
+<div class="media" style="margin-top: 20px;"></div>
+
+
     {{ form(userForm) }}
     
 <div class="afficher-route">

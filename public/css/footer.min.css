@@ -1,23 +1,47 @@
-/* Sticky footer styles
+            /* Sticky footer styles
 -------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  margin-bottom: 110px; /* Margin bottom by footer height */
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px; /* Set the fixed height of the footer here */
-  background-color: #000000;
-  top: 97%;
-}
-/*
- liste des membres 
-*/
-.table{
-    background:white;
-}
+            /* Custom page CSS
+ * Not required for template or sticky footer method.
+ * -------------------------------------------------- */
+            
+            .container-footer {
+                width: auto;
+                padding: 0 15px;
+            }
+            
+            .container-footer .text-muted {
+                margin: 20px 0;
+            }
+            
+            .footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 150px;
+                /* Set the fixed height of the footer here */
+                background-color: #040714;
+                top: 97%;
+                color: white;
+            }
+            /**
+            position location
+            **/
+            
+            .footer-location {
+                margin: -3.5% 0% 0% -12%;
+                position: absolute;
+            }
+            
+            .footer-adress-titre {
+                text-decoration: underline;
+                font-weight: bolder;
+            }
+            
+            .footer .footer-location p {
+                text-align: left;
+            }
+            
+            .footer .text-muted {
+                font-size: 17px;
+                color: white;
+            }

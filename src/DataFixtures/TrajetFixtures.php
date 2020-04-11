@@ -66,6 +66,102 @@ _lorem;
             ->setDateExpiration(new \DateTime('+90 days'));
         $manager->persist($trajet3);
 
+        $trajet4 = new Trajet();
+        $description = <<< _lorem
+numéro 4
+_lorem;
+        $trajet4->setDateCreation(new \DateTime(2020-03-07))
+            ->setDateModification(new \DateTime(2020-03-07))
+            ->setDescription($description)
+            ->setHeureArrivee(new \DateTime('07:20:00'))
+            ->setHeureDepart(new \DateTime('11:20:00'))
+            ->setNbPlaces(4)
+            ->setPrix(25)
+            ->setVilleArrivee("Toulon")
+            ->setVilleDepart("Lille")
+            ->setDateExpiration(new \DateTime('+90 days'));
+        $manager->persist($trajet4);       
+        
+        $trajet5 = new Trajet();
+        $description = <<< _lorem
+numéro 5
+_lorem;
+        $trajet5->setDateCreation(new \DateTime(2020-07-07))
+            ->setDateModification(new \DateTime(2020-07-07))
+            ->setDescription($description)
+            ->setHeureArrivee(new \DateTime('17:20:00'))
+            ->setHeureDepart(new \DateTime('21:20:00'))
+            ->setNbPlaces(2)
+            ->setPrix(10)
+            ->setVilleArrivee("Lyon")
+            ->setVilleDepart("Bordeau")
+            ->setDateExpiration(new \DateTime('+150 days'));
+        $manager->persist($trajet5);
+
+        $trajet6 = new Trajet();
+        $description = <<< _lorem
+numéro 6
+_lorem;
+        $trajet6->setDateCreation(new \DateTime(2021-03-07))
+            ->setDateModification(new \DateTime(2021-03-07))
+            ->setDescription($description)
+            ->setHeureArrivee(new \DateTime('07:20:00'))
+            ->setHeureDepart(new \DateTime('11:20:00'))
+            ->setNbPlaces(4)
+            ->setPrix(8)
+            ->setVilleArrivee("Saint sébastien sur Loire")
+            ->setVilleDepart("Champtoceaux")
+            ->setDateExpiration(new \DateTime('+90 days'));
+        $manager->persist($trajet6);
+
+        $trajet7 = new Trajet();
+        $description = <<< _lorem
+numéro 7
+_lorem;
+        $trajet7->setDateCreation(new \DateTime(2021-05-07))
+            ->setDateModification(new \DateTime(2021-05-07))
+            ->setDescription($description)
+            ->setHeureArrivee(new \DateTime('07:20:00'))
+            ->setHeureDepart(new \DateTime('11:20:00'))
+            ->setNbPlaces(1)
+            ->setPrix(10)
+            ->setVilleArrivee("Paris")
+            ->setVilleDepart("Toulon")
+            ->setDateExpiration(new \DateTime('+90 days'));
+        $manager->persist($trajet7);
+
+        $trajet8 = new Trajet();
+        $description = <<< _lorem
+numéro 8
+_lorem;
+        $trajet8->setDateCreation(new \DateTime(2020-04-11))
+            ->setDateModification(new \DateTime(2020-04-11))
+            ->setDescription($description)
+            ->setHeureArrivee(new \DateTime('07:20:00'))
+            ->setHeureDepart(new \DateTime('11:20:00'))
+            ->setNbPlaces(4)
+            ->setPrix(15)
+            ->setVilleArrivee("Bouffere")
+            ->setVilleDepart("Créteil")
+            ->setDateExpiration(new \DateTime('+150 days'));
+        $manager->persist($trajet8);
+
+        $trajet9 = new Trajet();
+        $description = <<< _lorem
+numéro 9
+_lorem;
+        $trajet9->setDateCreation(new \DateTime(2020-05-07))
+            ->setDateModification(new \DateTime(2020-05-07))
+            ->setDescription($description)
+            ->setHeureArrivee(new \DateTime('07:20:00'))
+            ->setHeureDepart(new \DateTime('11:20:00'))
+            ->setNbPlaces(4)
+            ->setPrix(15)
+            ->setVilleArrivee("Toulouse")
+            ->setVilleDepart("Montpellier")
+            ->setDateExpiration(new \DateTime('+150 days'));
+        $manager->persist($trajet9);
+
         $manager->flush();
     }
 

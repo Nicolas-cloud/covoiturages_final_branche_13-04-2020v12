@@ -72,9 +72,14 @@ class User implements UserInterface
      */
     private $trajets;
 
+
+/*
+  Assert\EqualTo(propertyPath="password", message="Les deux mots de passes doivent être égaux")
+
+*/
+
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\EqualTo(propertyPath="password", message="Les deux mots de passes doivent être égaux")
      */
     private $password_confirm;
 

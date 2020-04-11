@@ -3,12 +3,19 @@
 {% block title %}{% trans %}Delete user{% endtrans %}| {{ parent() }}{% endblock %}
 
 {% block body %}
-    <div class="title">{% trans %}Delete a user{% endtrans %}</div>
-    <div class="alert alert-danger">
+<style>
+    .user-delete{
+        color:black;
+    }
+</style>
+
+<div class="title">{% trans %}Delete a user{% endtrans %}</div>
+<div class="media"></div>
+    <div class="alert alert-danger" style="color:black;">
         <strong>{% trans %}Carefull{% endtrans %} !</strong> {% trans %}You are going to delete this user {% endtrans %} :
         <ul>
-            <li><strong>{% trans %}Lastname{% endtrans %} : </strong> {{ user.Nom }}</li>
-            <li><strong>{% trans %}Pseudo{% endtrans %} : </strong>{{ user.Pseudo }}</li>
+            <li class="user-delete"><strong>{% trans %}Lastname{% endtrans %} : </strong> {{ user.Nom }}</li>
+            <li class="user-delete"><strong>{% trans %}Pseudo{% endtrans %} : </strong>{{ user.Pseudo }}</li>
 
         </ul>
     </div>

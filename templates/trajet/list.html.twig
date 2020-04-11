@@ -14,13 +14,7 @@
 {% block body %}
 
     <style>
-        .block{
-            width:92%;
-	        height:100%;
-            border-color: red;
-            margin-top: 10px;
-            border: 4px double;
-        }
+
     </style>
 
     <div class="title">{% trans %}Lasts routes created{% endtrans %}</div>
@@ -28,7 +22,7 @@
         <div class="container">
             <div class="row">
                 {% for trajet in trajets %}
-                    <div class="col-sm-3 col-md-4 col-lg-4">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
                         <div class="block">
                             <div class="block-body">
                                 <h5 style="text-align:center;">

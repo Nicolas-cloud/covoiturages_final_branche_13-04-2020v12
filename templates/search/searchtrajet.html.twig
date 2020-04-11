@@ -34,7 +34,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group" style="margin-left:2%;">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" style="">Submit</button>
                     </div>
                 </div>
 
@@ -51,13 +51,14 @@
                             <i class='fa-caret-square-o-down' style='font-size:100px;'></i>
                         </div>
                     </div>
-
+                    <br>
                     {% if trajets |length == 0 %}
-                        <div class="title">{% trans %}There is no result wich match your search{% endtrans %}</div>
+                        <p class="titre" style="margin-right:35%;">
+                            <i class="fa fa-sort" style='font-size:110px;'></i>
+                        </p><br>
+                        <div class="title" style="margin-left:-40%; font-size: 35px;">{% trans %}There is no result wich match your search{% endtrans %}</div>
                     {% else %}
-                        <div class="title" style="margin-right:50%;">
-                            <i class='fa fa-caret-square-o-down' style='font-size:100px;'></i>{% trans %}Results{% endtrans %}
-                        </div>
+                    <p class="titre" style="margin-right:35%;"><i class="fa fa-sort" style='font-size:130px;'></i>{% trans %} {% endtrans %}</p>
                         {% for trajet in trajets %}
                                 <div class="col-sm-3 col-md-4 col-lg-4">
                                     <div class="block">
