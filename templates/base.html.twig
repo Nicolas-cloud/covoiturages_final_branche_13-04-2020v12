@@ -1,8 +1,3 @@
-{#
-{% block b1 %}
-    {% include 'serviceClient.html.twig' %}
-{% endblock %}
-#}
 <!DOCTYPE html>
 <html>
 
@@ -13,13 +8,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/serviceclient.min.css') }}">
+
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style_sombre.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/styles_light.css') }}" id="theme-link">
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/serviceclient.css') }}">
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.0.js"></script>
-        
+
+
 
     </head>
 
@@ -94,7 +92,7 @@
     <footer class="footer">
       <div class="container">
       <br><br><br>
-        <p class="text-muted">{% trans %}Plus besoin d'aller en ville pour quitter la ville : nous mettons en relation passagers et conducteurs prêts à partager leur trajet en voiture pour leur permettre d'aller partout, et sans changement.{% endtrans %}</p>
+        <p class="text-muted">{% trans %}Plus besoin d'aller en ville pour quitter la ville : nous mettons en relation passagers et conducteurs prêts à partager leur trajet en voiture pour leur permettre d'aller partout, et sans changement.{% endtrans %} - <span id="theme">Thème clair</span></p>
         <div class="footer-location">
             <p class="footer-adress-titre">{% trans %}Location{% endtrans %}</p>
             <p class="footer-adress-rue">45, rue des champs saints</p>
@@ -118,6 +116,10 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/theme.min.js') }}"></script>
+
+
 
 
 </html>

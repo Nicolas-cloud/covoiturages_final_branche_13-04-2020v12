@@ -29,7 +29,6 @@ strike,
 strong,
 sub,
 sup,
-tt,
 var,
 b,
 u,
@@ -95,9 +94,9 @@ body {
 
 body {
     overflow-y: scroll;
-    background: #2a2e43;
-    background: -webkit-gradient(linear, left top, left bottom, from(#2a2e43), to(#96aad3));
-    background: linear-gradient(to bottom, #151825 0%, #97b0e4 100%);
+    background: #b8bb94;
+    background: -webkit-gradient(linear, left top, left bottom, from(#b8bb94), to(#97b0e4));
+    background: linear-gradient(to bottom, #ffffff 0%, #97b0e4 100%);
     color: black;
 }
 
@@ -105,7 +104,7 @@ ul {
     margin-top: 10px;
     list-style-type: none;
     padding: 0px;
-    background: white;
+    background: rgb(255, 255, 255);
 }
 
 .navbar-default {
@@ -113,7 +112,7 @@ ul {
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
-    z-index: 3;
+    z-index: 2;
 }
 
 li a {
@@ -130,12 +129,12 @@ a:link {
 }
 
 li a:hover {
-    color: #5369d4
+    color: #5e637c
     /* Liens actifs */
 }
 
 li a:active {
-    color: #5369d4;
+    color: #5e637c;
 }
 
 .lien_left {
@@ -174,7 +173,7 @@ les couleurs du texte, + position texte
 .title {
     font-size: 45px;
     text-align: center;
-    color: white;
+    color: black;
     font-style: Oblique;
     font-weight: 800;
 }
@@ -190,15 +189,15 @@ li,
 h2,
 a {
     text-align: center;
-    color: white;
+    color: black;
 }
 
 .row {
-    color: white;
+    color: black;
 }
 
 label {
-    color: white;
+    color: black;
 }
 
 h5 {
@@ -222,9 +221,9 @@ cadre css pour les trajets
 .block {
     width: 92%;
     margin-top: 50px;
-    border-top: 1px solid #DDD;
-    border-bottom: 1px solid #DDD;
-    border: 1px solid #DDD;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border: 1px solid black;
     margin-top: 24px;
     height: calc(39vh - 56px);
     height: stretch;
@@ -235,7 +234,11 @@ cadre css pour les trajets
 ligne separation affichage recherche
 **/
 
+
+/**
 .line {}
+
+**/
 
 
 /**
@@ -260,7 +263,7 @@ css affichage chemin
 */
 
 .table {
-    background: white;
+    background: gray;
 }
 
 .row-log-in {
@@ -288,7 +291,7 @@ home PAGE D ACCUEIL DESGIN
 .header2 {
     font-size: 2.6rem;
     font-weight: 600;
-    color: #ffffff
+    color: black
 }
 
 .image {
@@ -306,4 +309,66 @@ position bouton ? le top
     text-align: center;
     width: 100%;
     top: 105%;
+}
+
+
+/***********************************************
+
+FOOTER
+
+************************************************/
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+/* Custom page CSS
+ * Not required for template or sticky footer method.
+ * -------------------------------------------------- */
+
+.container-footer {
+    width: auto;
+    padding: 0 15px;
+}
+
+.container-footer .text-muted {
+    margin: 20px 0;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    /* Set the fixed height of the footer here */
+    background: #8e8f81;
+    background: -webkit-gradient(linear, left top, left bottom, from(#51524c), to(#a4afc7));
+    background: linear-gradient(to bottom, #ffffff 0%, #97b0e4 100%);
+    color: black;
+    top: 97%;
+}
+
+
+/**
+            position location
+            **/
+
+.footer-location {
+    margin: -3.5% 0% 0% -12%;
+    position: absolute;
+}
+
+.footer-adress-titre {
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+.footer .footer-location p {
+    text-align: left;
+}
+
+.footer .text-muted {
+    font-size: 17px;
+    color: black;
 }

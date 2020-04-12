@@ -1,0 +1,371 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+abbr,
+address,
+code,
+em,
+img,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+button,
+input,
+option,
+select,
+textarea {
+    font-size: 100%;
+    font: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 110px;
+    /* Margin bottom by footer height */
+}
+
+
+/* navbar principale
+*/
+
+body {
+    overflow-y: scroll;
+    background: #2a2e43;
+    background: -webkit-gradient(linear, left top, left bottom, from(#2a2e43), to(#96aad3));
+    background: linear-gradient(to bottom, #151825 0%, #97b0e4 100%);
+    color: black;
+}
+
+ul {
+    margin-top: 10px;
+    list-style-type: none;
+    padding: 0px;
+    background: white;
+}
+
+.navbar-default {
+    /** nav bar reste quand on scroll bas **/
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    color: #34393E;
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+li a:hover {
+    color: #5369d4
+    /* Liens actifs */
+}
+
+li a:active {
+    color: #5369d4;
+}
+
+.lien_left {
+    float: left;
+}
+
+.lien_right {
+    float: right;
+}
+
+
+/**
+margin barre navig
+**/
+
+.marge {
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-bottom: 0%;
+}
+
+
+/*
+Priorité pour le service client sur la photo 
+*/
+
+.priorite {
+    z-index: 2;
+}
+
+
+/**
+les couleurs du texte, + position texte
+**/
+
+.title {
+    font-size: 45px;
+    text-align: center;
+    color: white;
+    font-style: Oblique;
+    font-weight: 800;
+}
+
+p {
+    font-size: 15px;
+}
+
+p,
+h3,
+h1,
+li,
+h2,
+a {
+    text-align: center;
+    color: white;
+}
+
+.row {
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+h5 {
+    font-size: 23px;
+    font-style: italic;
+}
+
+.command_admin_impair {
+    background: #d84747;
+}
+
+.command_admin_pair {
+    background: #383535;
+}
+
+
+/**
+cadre css pour les trajets
+**/
+
+.block {
+    width: 92%;
+    margin-top: 50px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    border: 1px solid #DDD;
+    margin-top: 24px;
+    height: calc(39vh - 56px);
+    height: stretch;
+}
+
+
+/**
+ligne separation affichage recherche
+**/
+
+
+/**
+.line {}
+
+**/
+
+
+/**
+css affichage chemin
+**/
+
+.afficher-route {
+    position: static;
+    float: right;
+}
+
+.afficher-route p {
+    color: #151825;
+    font-style: oblique;
+    font-size: 19px;
+    font-weight: bolder;
+}
+
+
+/*
+ liste des membres 
+*/
+
+.table {
+    background: white;
+}
+
+.row-log-in {
+    margin-left: 20%;
+}
+
+
+/**
+home PAGE D ACCUEIL DESGIN
+**/
+
+.banner {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.header {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 77%;
+}
+
+.header2 {
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: #ffffff
+}
+
+.image {
+    margin-left: 0px;
+    z-index: 1;
+}
+
+
+/**
+position bouton ? le top
+**/
+
+.body {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 105%;
+}
+
+
+/*******************************
+FOOTER
+****************************/
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+
+/* Custom page CSS
+ * Not required for template or sticky footer method.
+ * -------------------------------------------------- */
+
+.container-footer {
+    width: auto;
+    padding: 0 15px;
+}
+
+.container-footer .text-muted {
+    margin: 20px 0;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    /* Set the fixed height of the footer here */
+    background-color: #040714;
+    top: 97%;
+    color: white;
+}
+
+
+/**
+    position location
+**/
+
+.footer-location {
+    margin: -3.5% 0% 0% -12%;
+    position: absolute;
+}
+
+.footer-adress-titre {
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+.footer .footer-location p {
+    text-align: left;
+}
+
+.footer .text-muted {
+    font-size: 17px;
+    color: white;
+}

@@ -1,15 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Liste trajets | {{ parent() }}{% endblock %}
-    {% block head %}
-    
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+{% block head %}
 
-    {% endblock head %}
 
-    {% block javascripts %}
-{% endblock %}
+{{ parent() }}
+
+{% endblock head %}
+
 
 {% block body %}
 
@@ -63,6 +61,10 @@
     </p>
 </div>
 
+
+{% block javascript %}
+
+{% endblock %}
 
 
 {% endblock %}
