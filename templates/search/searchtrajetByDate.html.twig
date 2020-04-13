@@ -11,7 +11,7 @@
         
     </style>
     
-    <div class="title">{% trans %}Advanced search{% endtrans %}</div><br>
+    <div class="title">{% trans %}Filter by date{% endtrans %}</div><br>
     <div class="container">
 
         <div class="section">
@@ -23,32 +23,34 @@
                     <div class="col-md-4">{{ form_row(form.ville_arrivee, {'label': 'Arrival city', 'attr': {'placeholder': 'Ville d\'arrivée ...'}}) }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">{{ form_row(form.nb_places, {'label': 'Nombre de places', 'attr': {'placeholder': 'Combien de places ...'}}) }}</div>
+                    <div class="col-md-4">{{ form_row(form.date_depart) }}</div>
+                    <div class="col-md-4">{{ form_row(form.heure_depart) }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">{{ form_row(form.maximum_price, {'label': 'Prix maximum'}) }}</div>
-                </div>
+                        <div class="col-md-4">{{ form_row(form.nb_places, {'label': 'Nombre de places', 'attr': {'placeholder': 'Combien de places ...'}}) }}</div>
+                    </div>
                 <div class="row">
                     <div class="form-group" style="margin-left:2%;">
-                        <button type="submit" class="btn btn-primary" style="">Submit</button>
+                        <button type="submit" class="btn btn-primary" style="">{% trans %}Submit{% endtrans %}</button>
                     </div>
                 </div>
 
                 <div class="row">
-                        <div class="col-md-4"><a class="btn btn-success" href="{{ path('search.trajet_bydate') }}"><i class="fa fa-calendar" style='font-size:15px; margin-right:5px;'></i>{% trans %}Filter by date{% endtrans %}</a></p>
+                    <div class="col-md-4"><a class="btn btn-success" href="{{ path('search.trajet') }}">{% trans %}Back{% endtrans %}</a></p>
                 </div>
                 
                 <div style="visibility:hidden;">
-                <div class="row">
-                    <div class="col-md-4">{{ form_row(form.date_depart) }}</div>
-                    <div class="col-md-4">{{ form_row(form.heure_depart) }}</div>
+
+                    <div class="row">
+                        <div class="col-md-4">{{ form_row(form.maximum_price, {'label': 'Prix maximum'}) }}</div>
+                    </div>
                 </div>
-                </div>
+                {{ form_widget(form) }}
+
                 {{ form_end(form) }}
 
-
-
             </div>
+
             {% if app.request.method == 'POST' %}
             <div class="row">
                 <div>
@@ -70,7 +72,7 @@
                                     <div class="block">
                                         <div class="block-body">
                                             <br>
-                                            </p><i class="fa fa-car" style='font-size:20px; margin-left:45%;'></i></p>
+                                            </p><i class="fa fa-car" style='font-size:20px; margin-left:50%;'></i></p>
                                             <p>{% trans %}Departure city{% endtrans %} : {{ trajet.VilleDepart }}</p>
                                             <p>{% trans %}Arrival city{% endtrans %} : {{ trajet.VilleArrivee }}</p>
                                             <p>{% trans %}Departure time{% endtrans %} : {{ trajet.HeureDepart|date('h:i:s') }}</p>

@@ -53,6 +53,18 @@ class TrajetRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+        public function searchTrajetByDate($criteria)
+    {
+        $qb = $this->createQueryBuilder('t')
+            //->leftJoin('t.ville_depart', 'ville_depart')
+            ->where('t.ville_depart = :ville_depart')
+            ->setParameter('ville_depart', $criteria['ville_depart'])
+            ->andWhere('t.date_expiration <= :date_depart')
+            ->setParameter("date_depart", $criteria['date_depart']->format('Y-m-d'));
+
+        return $qb->getQuery()->getResult();
+    }
+
     /*
     public function findOneBySomeField($value): ?Trajet
     {

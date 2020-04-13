@@ -37,8 +37,6 @@ class SearchTrajetType extends AbstractType
             ])
             ->add('heure_depart', TimeType::class, [
                 'label' => 'Heure de départ',
-                'constraints' => [new NotBlank(),
-                ]
             ])
             /*
             /*->add('heure_arrivee', TimeType::class, [

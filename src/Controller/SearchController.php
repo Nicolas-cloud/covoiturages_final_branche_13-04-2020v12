@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 class SearchController extends AbstractController
 {
     /**
-     * @Route("/search/", name="search.trajet")
+     * @Route("/search", name="search.trajet")
      * @param Request $request
      */
     public function searchTrajet(Request $request, TrajetRepository $trajetRepository) : Response
@@ -31,6 +31,27 @@ class SearchController extends AbstractController
         }
 
         return $this->render('search/searchtrajet.html.twig', [
+            'form' => $SearchTrajetForm->createView(),
+            'trajets' => $trajets,
+        ]);
+    }
+
+
+        /**
+     * @Route("/search/byDate", name="search.trajet_bydate")
+     * @param Request $request
+     */
+    public function searchTrajetByDate(Request $request, TrajetRepository $trajetRepository) : Response
+    {
+        $trajets=[];
+        $SearchTrajetForm = $this->createForm(SearchTrajetType::class);
+
+        if ($SearchTrajetForm->handleRequest($request)->isSubmitted() && $SearchTrajetForm->isValid()) {
+            $criteria = $SearchTrajetForm->getData();
+            $trajets = $trajetRepository->searchTrajetByDate($criteria);
+        }
+
+        return $this->render('search/searchtrajetbydate.html.twig', [
             'form' => $SearchTrajetForm->createView(),
             'trajets' => $trajets,
         ]);
