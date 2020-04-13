@@ -10,8 +10,13 @@
     }
 </style>
 
+
+
 <div class="title">{% trans %}Reservation{% endtrans %}</div><br>
 <div class="container">
+    {% if error == "Vous ne pouvez pas réserver plus de places qu'il n'y a de places diponibles" %}
+        <div class="alert alert-danger">{{ (error) }}</div>
+    {% endif %}
 
 	<div class="section">
 		<div class="col m6 offset-m3">
