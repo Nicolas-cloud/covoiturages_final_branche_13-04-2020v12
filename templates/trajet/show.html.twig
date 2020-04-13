@@ -28,15 +28,21 @@
                 <p>{{ trajet.description|nl2br }}</p><br>
             </div>
             <div class="col-sm-10">
-                <p class="text-info" style="color:black;">{% trans %}Expire on{% endtrans %} {{ trajet.DateExpiration|date('d/m/Y') }}</p>
+                <p class="">{% trans %}Expire on{% endtrans %} {{ trajet.DateExpiration|date('d/m/Y') }}</p>
             </div>
             <div class="col-sm-12">
                 <i class="pull-right">{% trans %}Published on{% endtrans %} {{ trajet.getDateCreation()|date('m/d/Y') }}</i>
             </div>
+            <div class="col-sm-12">
+                <a class="btn btn-default" style="margin-left:36%;" href="{{ path('avis_create') }}">
+                    <span class="" aria-hidden="true"></span>
+                    {% trans %}Published a comment{% endtrans %}
+                </a>            
+            </div>
             <div class="row">
                 <div class="col-sm-12 text-right">
                     <a class="btn btn-default" href="{{ path('trajet.list') }}">
-                        <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                        <span class="" aria-hidden="true"></span>
                         {% trans %}List of routes{% endtrans %}
                     </a>
                     <a class="btn btn-primary" href="{{ path('trajet.edit', {'slug': trajet.slug}) }}">
@@ -51,7 +57,7 @@
         </div>
     </div>
 
-<div class="afficher-route">
+<div class="afficher-route"><br><br><br><br>
 	<p>({% trans %}English{% endtrans %})
 		{% trans %}Carpooling{% endtrans %}
 		→

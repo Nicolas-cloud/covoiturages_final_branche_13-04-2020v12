@@ -82,7 +82,7 @@ Reservation: Reservation
 'Already connected': 'Already connected'
 'No required permissions': 'No required permissions'
 'To go back click, on the next button': 'To go back click, on the next button'
-back: _back
+back: back
 'you can click': 'you can click'
 here: here
 'to logout.': 'to logout.'
@@ -100,6 +100,12 @@ List: List
 Location: Location
 'My travels': 'My travels'
 'Filter by date': 'Filter by date'
-'': 
 Back: Back
 'List of travels': 'List of travels'
+'New comment !': 'New comment !'
+'Your travels created': 'Your travels created'
+'Published a comment': 'Published a comment'
+'Your reservations': 'Your reservations'
+'You don''t have any reservation now': 'You don''t have any reservation now'
+'You don''t have any travels now': 'You don''t have any travels now'
+'': __

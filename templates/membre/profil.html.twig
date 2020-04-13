@@ -30,18 +30,18 @@
 			<a href="{{ path('membre_photo') }}">Photo</a>
 		</li>
 		<li>
-			<a href="path ('membre_trajets') }}">Mes trajets</a>
+			<a href="{{ path('membre_mytrajets') }}">Mes trajets</a>
 		</li>
-		<li>
-			<a href="#">Véhicule</a>
+		<li class="">
+			<a href="{{ path('membre_myreservations') }}">Mes réservations</a>
 		</li>
-		<li>
+		<li class="active">
 			<a href="#">Adresse postale</a>
 		</li>
 	</ul>
 
 	<ul class="nav nav-tabs nav-stacked profile-menu">
-		<li class="profile-header-menu">Avis</li>
+		<li class="active">Avis</li>
 		<li>
 			<a href="#">Avis reçus</a>
 		</li>
@@ -51,7 +51,7 @@
 	</ul>
 
 	<ul class="nav nav-tabs nav-stacked account-menu no-margin-bottom">
-		<li class="profile-header-menu">Compte</li>
+		<li class="#">Compte</li>
 		<li>
 			<a href="#">Préférences de virement</a>
 		</li>

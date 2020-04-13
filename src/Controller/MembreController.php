@@ -9,7 +9,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\User;
+use App\Entity\Reservation;
 use App\Form\UserType;
+use App\Entity\Trajet;
+use App\Repository\TrajetRepository;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -89,16 +92,30 @@ class MembreController extends AbstractController
      * @param EntityManagerInterface $em
      * @return RedirectResponse|Response
      */
-    /*
-    public function mytravels(Request $request, Trajet $trajet, EntityManagerInterface $em): Response
+    
+    public function mytravels(): Response
     {
-        $form = $this->createForm(EditTrajetType::class, $trajet);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em->flush();
-            return $this->redirectToRoute('trajet.list');
-        }
+        $user = $this->getUser();
+        $trajets = $this->getDoctrine()->getRepository(Trajet::class)->findBy(['Autheur' => $user]);
+        return $this->render('membre/userTravels.html.twig', [
+            'trajets' => $trajets,
+        ]);   
+    }
 
-        return $this->render('trajet/userTravels.html.twig', ['form' => $form->createView(),]);
-    }*/
+        /**
+     * Liste des trajets de l'utilisateur connecté.
+     * @IsGranted("ROLE_USER")
+     * @Route("membre/profil/mesreservations", name="myreservations")
+     * @param Request $request
+     * @param EntityManagerInterface $em
+     * @return RedirectResponse|Response
+     */
+    public function myreservations(): Response
+    {
+        $user = $this->getUser();
+        $reservations = $this->getDoctrine()->getRepository(Reservation::class)->findBy(['Passager' => $user]);
+        return $this->render('membre/userReservations.html.twig', [
+            'reservations' => $reservations,
+        ]);   
+    }
 }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}My Travels | {{ parent() }}{% endblock %}
+{% block title %}My Reservations | {{ parent() }}{% endblock %}
 
 {% block head %}{% endblock %}
 
@@ -72,17 +72,15 @@
 	</ul>
 </div>
 
-
-
 </style>
-    <div class="title">{% trans %}Your travels created{% endtrans %}</div><br>
+    <div class="title">{% trans %}Your reservations{% endtrans %}</div><br>
     <div class="media" style="margin-top: 20px;">
         <div class="container">
             <div class="row">
-			    {% if trajets |length == 0 %}
+			    {% if reservations |length == 0 %}
                     <p class="titre" style="margin-right:35%;">
                     </p><br>
-                    <div class="title" style="margin-left:-40%; font-size: 35px;">{% trans %}You don't have any travels now{% endtrans %}</div>
+                    <div class="title" style="margin-left:-40%; font-size: 35px;">{% trans %}You don't have any reservation now{% endtrans %}</div>
                 {% else %}
 					{% for trajet in trajets %}
 						<div class="block" style="width: 50%; margin-left:13%;">
@@ -121,16 +119,5 @@
 		</div>
 	</div>
 
-<div class="afficher-route">
-	<p>({% trans %}English{% endtrans %})
-		{% trans %}Carpooling{% endtrans %}
-		→
-		{% trans %}Profile{% endtrans %}
-		→
-		{% trans %}My travels{% endtrans %}</p>
-</div>
 
-
-
-
-{%  endblock %}
+{% endblock %}

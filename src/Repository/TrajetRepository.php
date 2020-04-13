@@ -59,7 +59,9 @@ class TrajetRepository extends ServiceEntityRepository
             //->leftJoin('t.ville_depart', 'ville_depart')
             ->where('t.ville_depart = :ville_depart')
             ->setParameter('ville_depart', $criteria['ville_depart'])
-            ->andWhere('t.date_expiration <= :date_depart')
+            ->andWhere('t.date_expiration >= :date_depart')
+            ->setParameter("date_depart", $criteria['date_depart']->format('Y-m-d'))
+            ->andWhere('t.date_creation <= :date_depart')
             ->setParameter("date_depart", $criteria['date_depart']->format('Y-m-d'));
 
         return $qb->getQuery()->getResult();

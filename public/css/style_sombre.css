@@ -398,7 +398,7 @@ SERVICE CLIENT
 #fixed-form-container {
     position: fixed;
     bottom: 745px;
-    width: 96%;
+    width: 100%;
     text-align: center;
     margin-left: -1.6%;
 }
@@ -442,13 +442,13 @@ SERVICE CLIENT
     box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:800px) {
     #fixed-form-container .button {
         margin: 0;
     }
     #fixed-form-container {
         left: 20px;
-        width: 390px;
+        width: 420px;
         text-align: left;
         z-index: 1;
     }

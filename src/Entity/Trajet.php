@@ -70,11 +70,6 @@ class Trajet
 
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="avis_trajet")
-     */
-    private $avis;
-
-    /**
      * @ORM\Column(type="date", nullable=true)
      */
     private $date_expiration;
@@ -94,6 +89,11 @@ class Trajet
      * @ORM\OneToMany(targetEntity="App\Entity\Reservation", mappedBy="Passager")
      */
     private $reservations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="AvisTrajet")
+     */
+    private $avis;
 
 
     public function __construct()
@@ -237,38 +237,6 @@ class Trajet
         return $this;
     }
 
-
-    /**
-     * @return Collection|Avis[]
-     */
-    public function getAvis(): Collection
-    {
-        return $this->avis;
-    }
-
-    public function addAvi(Avis $avi): self
-    {
-        if (!$this->avis->contains($avi)) {
-            $this->avis[] = $avi;
-            $avi->setAvisTrajet($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAvi(Avis $avi): self
-    {
-        if ($this->avis->contains($avi)) {
-            $this->avis->removeElement($avi);
-            // set the owning side to null (unless already changed)
-            if ($avi->getAvisTrajet() === $this) {
-                $avi->setAvisTrajet(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getDateExpiration(): ?\DateTimeInterface
     {
         return $this->date_expiration;
@@ -330,6 +298,37 @@ class Trajet
             // set the owning side to null (unless already changed)
             if ($reservation->getPassager() === $this) {
                 $reservation->setPassager(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Avis[]
+     */
+    public function getAvis(): Collection
+    {
+        return $this->avis;
+    }
+
+    public function addAvi(Avis $avi): self
+    {
+        if (!$this->avis->contains($avi)) {
+            $this->avis[] = $avi;
+            $avi->setAvisTrajet($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvi(Avis $avi): self
+    {
+        if ($this->avis->contains($avi)) {
+            $this->avis->removeElement($avi);
+            // set the owning side to null (unless already changed)
+            if ($avi->getAvisTrajet() === $this) {
+                $avi->setAvisTrajet(null);
             }
         }
 

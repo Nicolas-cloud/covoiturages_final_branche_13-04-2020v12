@@ -26,7 +26,7 @@ class User implements UserInterface
      * UniqueEntity(
      *  fields={"email"},
      *  message="L'email que vous avez saisi est déjà utilisé"
-     * )
+     * 
      */
     private $email;
 
@@ -83,9 +83,15 @@ class User implements UserInterface
      */
     private $password_confirm;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Avis", mappedBy="AutheurAvis")
+     */
+    private $avis;
+
     public function __construct()
     {
         $this->trajets = new ArrayCollection();
+        $this->avis = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -265,6 +271,37 @@ class User implements UserInterface
     public function setPasswordConfirm(string $password_confirm): self
     {
         $this->password_confirm = $password_confirm;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Avis[]
+     */
+    public function getAvis(): Collection
+    {
+        return $this->avis;
+    }
+
+    public function addAvi(Avis $avi): self
+    {
+        if (!$this->avis->contains($avi)) {
+            $this->avis[] = $avi;
+            $avi->setAutheurAvis($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvi(Avis $avi): self
+    {
+        if ($this->avis->contains($avi)) {
+            $this->avis->removeElement($avi);
+            // set the owning side to null (unless already changed)
+            if ($avi->getAutheurAvis() === $this) {
+                $avi->setAutheurAvis(null);
+            }
+        }
 
         return $this;
     }

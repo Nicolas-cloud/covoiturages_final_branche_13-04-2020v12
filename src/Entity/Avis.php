@@ -27,9 +27,21 @@ class Avis
     private $date_publication;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="avis")
+     */
+    private $AutheurAvis;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Trajet", inversedBy="avis")
      */
-    private $avis_trajet;
+    private $AvisTrajet;
+
+
+    public function __construct(){
+    
+        $this->date_publication = new \DateTime();
+    
+    }
 
     public function getId(): ?int
     {
@@ -60,15 +72,28 @@ class Avis
         return $this;
     }
 
-    public function getAvisTrajet(): ?Trajet
+    public function getAutheurAvis(): ?User
     {
-        return $this->avis_trajet;
+        return $this->AutheurAvis;
     }
 
-    public function setAvisTrajet(?Trajet $avis_trajet): self
+    public function setAutheurAvis(?User $AutheurAvis): self
     {
-        $this->avis_trajet = $avis_trajet;
+        $this->AutheurAvis = $AutheurAvis;
 
         return $this;
     }
+
+    public function getAvisTrajet(): ?Trajet
+    {
+        return $this->AvisTrajet;
+    }
+
+    public function setAvisTrajet(?Trajet $AvisTrajet): self
+    {
+        $this->AvisTrajet = $AvisTrajet;
+
+        return $this;
+    }
+
 }
