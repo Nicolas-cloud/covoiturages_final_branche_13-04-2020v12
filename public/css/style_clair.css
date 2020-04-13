@@ -233,7 +233,9 @@ cadre css pour les trajets
 .block:hover{
     animation: fun 1s;
 }
-
+/**
+ANIAMTION BLOCK AFFICHAGE TRAJETS
+**/
 @keyframes fun{
     0%{
         transform: scale(1.1) rotate(0deg);
