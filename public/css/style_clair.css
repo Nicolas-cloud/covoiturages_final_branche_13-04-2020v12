@@ -94,8 +94,8 @@ body {
 
 body {
     overflow-y: scroll;
-    background: #b8bb94;
-    background: -webkit-gradient(linear, left top, left bottom, from(#b8bb94), to(#97b0e4));
+    background: #dfe0ce;
+    background: -webkit-gradient(linear, left top, left bottom, from(#dfe0ce), to(#97b0e4));
     background: linear-gradient(to bottom, #ffffff 0%, #97b0e4 100%);
     color: black;
 }
@@ -104,7 +104,7 @@ ul {
     margin-top: 10px;
     list-style-type: none;
     padding: 0px;
-    background: rgb(255, 255, 255);
+    background: #ffffff
 }
 
 .navbar-default {
@@ -286,12 +286,31 @@ home PAGE D ACCUEIL DESGIN
     text-align: center;
     width: 100%;
     top: 77%;
+    overflow:hidden;
+    z-index: 4;
 }
+/*
 
+BUG affichage du titre dans la div 
+
+.header-box{
+z-index: 3;
+position:absolute;
+left:14%;
+right:0;
+top:79%;
+padding:30px 0 30px;
+max-width:960px;
+border:1px solid #fff;
+background:rgba(0,0,0,0.2);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2000000, endColorstr=#b2000000);zoom:1;
+
+}
+*/
 .header2 {
     font-size: 2.6rem;
     font-weight: 600;
-    color: black
+    color: black;
 }
 
 .image {
@@ -342,17 +361,16 @@ FOOTER
     width: 100%;
     height: 150px;
     /* Set the fixed height of the footer here */
-    background: #8e8f81;
-    background: -webkit-gradient(linear, left top, left bottom, from(#51524c), to(#a4afc7));
-    background: linear-gradient(to bottom, #ffffff 0%, #97b0e4 100%);
+    background: #ffffff;
     color: black;
     top: 97%;
+    font-weight: bolder;
 }
 
 
 /**
-            position location
-            **/
+    position location
+**/
 
 .footer-location {
     margin: -3.5% 0% 0% -12%;
@@ -371,4 +389,74 @@ FOOTER
 .footer .text-muted {
     font-size: 17px;
     color: black;
+}
+
+
+/**
+
+SERVICE CLIENT
+
+**/
+
+#fixed-form-container {
+    position: fixed;
+    bottom: 745px;
+    width: 96%;
+    text-align: center;
+    margin-left: -1.2%;
+}
+
+#fixed-form-container .button:before {
+    content: "- ";
+}
+
+#fixed-form-container .expanded:before {
+    content: "+ ";
+}
+
+#fixed-form-container .button {
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid rgb(14, 151, 206);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 0px 50px 50px 0px;
+    padding: 5px 20px 5px 20px;
+    background-color: rgb(14, 151, 206);
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    -webkit-box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+#fixed-form-container .body {
+    background-color: rgb(14, 151, 206);
+    border-radius: 5px;
+    border: 2px solid rgb(14, 151, 206);
+    margin-bottom: 16px;
+    padding: 10px;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (min-width:768px) {
+    #fixed-form-container .button {
+        margin: 0;
+    }
+    #fixed-form-container {
+        left: 20px;
+        width: 390px;
+        text-align: left;
+        z-index: 1;
+    }
+    #fixed-form-container .body {
+        padding: 30px;
+        border-radius: 0px 5px 35px 0px;
+    }
 }

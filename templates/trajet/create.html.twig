@@ -2,6 +2,15 @@
 
 {% block title %}{% trans %}New travel{% endtrans %} | {{ parent() }}{% endblock %}
 
+{% block head %}
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{% block stylesheets %}{% endblock stylesheets %}
+{% endblock head %}
+
+
 {% block body %}
     <style>
         .row{

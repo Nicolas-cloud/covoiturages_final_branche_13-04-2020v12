@@ -6,7 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-/**@Route("/{_locale}") */
+/**
+ * @Route("/") 
+ * @Route("/{_locale}") 
+ * 
+*/
 class HomeController extends AbstractController
 {
     /**

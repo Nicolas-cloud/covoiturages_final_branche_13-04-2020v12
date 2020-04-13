@@ -30,7 +30,7 @@
                                 <p class="text-time">{% trans %}Departure arrival{% endtrans %} : {{ trajet.HeureArrivee|date('h:i:s') }}</p>
                                 <p class="text-default"><strong>{{ trajet.NbPlaces }}</strong> {% trans %} places availables {% endtrans %}</p>
                                 <p class="card-text">{{ trajet.Prix|number_format(0, '', '') }}.00 €</p>
-                                <p class="text-info" style="color:white;">{% trans %}Expire on{% endtrans %} {{ trajet.DateExpiration|date('d/m/Y') }}</p>
+                                <p class="">{% trans %}Expire on{% endtrans %} {{ trajet.DateExpiration|date('d/m/Y') }}</p>
                                 <p class="card-button">
                                     <a class="btn btn-success" href="{{ path('trajet.show', {'slug': trajet.slug}) }}">{% trans %}Show informations{% endtrans %}</a>
                                     {% if is_granted("ROLE_USER") %}

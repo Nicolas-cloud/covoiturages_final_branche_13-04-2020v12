@@ -344,6 +344,8 @@ FOOTER
     background-color: #040714;
     top: 97%;
     color: white;
+    font-weight: bolder;
+
 }
 
 
@@ -368,4 +370,72 @@ FOOTER
 .footer .text-muted {
     font-size: 17px;
     color: white;
+}
+
+
+
+/**
+SERVICE CLIENT
+**/
+#fixed-form-container {
+    position: fixed;
+    bottom: 745px;
+    width: 96%;
+    text-align: center;
+    margin-left: -1.6%;
+}
+
+#fixed-form-container .button:before {
+    content: "- ";
+}
+
+#fixed-form-container .expanded:before {
+    content: "+ ";
+}
+
+#fixed-form-container .button {
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #6a85bb;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px 5px 0px 0px;
+    padding: 5px 20px 5px 20px;
+    background-color: #6a85bb;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    -webkit-box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 0px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+#fixed-form-container .body {
+    background-color: #6a85bb;
+    border-radius: 5px;
+    border: 2px solid #6a85bb;
+    margin-bottom: 16px;
+    padding: 10px;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(24, 24, 24, 0.3);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (min-width:768px) {
+    #fixed-form-container .button {
+        margin: 0;
+    }
+    #fixed-form-container {
+        left: 20px;
+        width: 390px;
+        text-align: left;
+        z-index: 1;
+    }
+    #fixed-form-container .body {
+        padding: 30px;
+        border-radius: 0px 5px 35px 0px;
+    }
 }

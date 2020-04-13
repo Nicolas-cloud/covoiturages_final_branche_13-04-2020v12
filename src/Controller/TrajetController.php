@@ -18,11 +18,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
 /**
- * 
  *   @Route("/{_locale}") 
  */
 class TrajetController extends AbstractController
 {
+
     /**
      * Lister tous les trajets non expirés.
      * @Route("/trajet/", name="trajet.list")
@@ -85,7 +85,7 @@ class TrajetController extends AbstractController
      * Éditer un trajet.
      * @IsGranted("ROLE_USER")
      * @IsGranted("edit", subject="trajet", message="Trajets can only be edited by their authors.")
-     * @Route("trajet/{slug}/edit", name="trajet.edit")
+     * @Route("/trajet/{slug}/edit", name="trajet.edit")
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return RedirectResponse|Response
@@ -108,7 +108,7 @@ class TrajetController extends AbstractController
      * Supprimer un trajet
      * @IsGranted("ROLE_USER")
      * @IsGranted("delete", subject="trajet", message="Trajets can only be deleted by their authors.")
-     * @Route("trajet/{slug}/delete", name="trajet.delete")
+     * @Route("/trajet/{slug}/delete", name="trajet.delete")
       * @param Request $request
      * @param Trajet $trajet
      * @param EntityManagerInterface $em

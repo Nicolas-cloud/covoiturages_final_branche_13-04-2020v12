@@ -7,13 +7,11 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
+        <!-- Fichiers CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/style_sombre.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/styles_light.css') }}" id="theme-link">
-
         <link rel="stylesheet" type="text/css" href="{{ asset('css/serviceclient.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style_clair.css') }}" id="theme-link">
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.0.js"></script>
 
@@ -92,7 +90,7 @@
     <footer class="footer">
       <div class="container">
       <br><br><br>
-        <p class="text-muted">{% trans %}Plus besoin d'aller en ville pour quitter la ville : nous mettons en relation passagers et conducteurs prêts à partager leur trajet en voiture pour leur permettre d'aller partout, et sans changement.{% endtrans %} - <span id="theme">Thème clair</span></p>
+        <p class="text-muted">{% trans %}Plus besoin d'aller en ville pour quitter la ville : nous mettons en relation passagers et conducteurs prêts à partager leur trajet en voiture pour leur permettre d'aller partout, et sans changement.{% endtrans %} - <span id="theme">Thème sombre</span></p>
         <div class="footer-location">
             <p class="footer-adress-titre">{% trans %}Location{% endtrans %}</p>
             <p class="footer-adress-rue">45, rue des champs saints</p>
@@ -101,7 +99,8 @@
         </div>
       </div>
     </footer>
-    
+
+
     <div class="container">
 
         {% block body %}
@@ -111,14 +110,13 @@
     </div>
 </body>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     
     <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-
     <script type="text/javascript" src="{{ asset('js/theme.min.js') }}"></script>
-
 
 
 

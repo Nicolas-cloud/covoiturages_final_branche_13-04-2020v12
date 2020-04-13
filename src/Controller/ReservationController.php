@@ -13,6 +13,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Entity\Trajet;
 
+/**
+ * @Route("/{_locale}")
+ */
 class ReservationController extends AbstractController
 {
     /**
@@ -28,7 +31,7 @@ class ReservationController extends AbstractController
     /** 
      * Reserver un trajet.
      * @IsGranted("ROLE_USER")
-     * @Route("trajet/{slug}/reservation", name="trajet_reservation")
+     * @Route("/trajet/{slug}/reservation", name="trajet_reservation")
      * @param Request $request
      * @param EntityManagerInterface $em
      * @return RedirectResponse|Response
